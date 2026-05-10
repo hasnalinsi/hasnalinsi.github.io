@@ -3,7 +3,6 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => {
     if (el.isIntersecting) {
       el.target.classList.add('in');
-      // Animate progress bars inside
       el.target.querySelectorAll('.progress-fill').forEach(bar => {
         bar.style.width = bar.dataset.width || bar.style.width;
       });
@@ -13,7 +12,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.anim-up, .anim-scale').forEach(el => observer.observe(el));
 
-// Animate progress bars on page load (for above-fold content)
+// Animate progress bars on page load (above-fold content)
 setTimeout(() => {
   document.querySelectorAll('.progress-fill').forEach(bar => {
     const target = bar.getAttribute('data-width');
@@ -31,7 +30,7 @@ if (nav) {
   }, { passive: true });
 }
 
-// Smooth number counters (for stat strips)
+// Smooth number counters
 function animateCounter(el) {
   const target = parseFloat(el.dataset.count);
   if (!target || isNaN(target)) return;
@@ -58,3 +57,56 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// Persistent checkboxes (localStorage)
+function initCheckboxes() {
+  document.querySelectorAll('.check-box[data-key]').forEach(box => {
+    const key = 'ceo-check-' + box.dataset.key;
+    const initial = box.dataset.initial || '';
+
+    if (localStorage.getItem(key) === 'done') {
+      box.classList.remove('progress');
+      box.classList.add('done');
+    }
+
+    box.style.cursor = 'pointer';
+    box.title = 'Click to mark done';
+
+    box.addEventListener('click', () => {
+      const isDone = box.classList.contains('done');
+      if (isDone) {
+        box.classList.remove('done');
+        if (initial === 'progress') box.classList.add('progress');
+        localStorage.removeItem(key);
+      } else {
+        box.classList.remove('progress');
+        box.classList.add('done');
+        localStorage.setItem(key, 'done');
+      }
+    });
+  });
+}
+initCheckboxes();
+
+// Mobile hamburger menu
+const burger = document.querySelector('.nav-burger');
+const navLinks = document.querySelector('.nav-links');
+if (burger && navLinks) {
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = navLinks.classList.toggle('open');
+    burger.classList.toggle('open', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav')) {
+      navLinks.classList.remove('open');
+      burger.classList.remove('open');
+    }
+  });
+}

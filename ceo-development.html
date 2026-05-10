@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CEO Development — Hasna</title>
+  <title>CEO Development, Hasna</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
@@ -18,13 +18,20 @@
     .skill-row:last-child { border-bottom: none; }
     .skill-name { font-size: 0.85rem; font-weight: 500; min-width: 180px; flex-shrink: 0; }
     .skill-bar-track { flex: 1; background: var(--border); border-radius: 4px; height: 4px; overflow: hidden; }
-    .skill-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, rgba(201,168,76,0.4), var(--gold)); transition: width 1s var(--ease) 0.3s; width: 0; }
+    .skill-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, rgba(66,146,198,0.4), var(--gold)); transition: width 1s var(--ease) 0.3s; width: 0; }
     .skill-when { font-size: 0.7rem; color: var(--text-3); min-width: 56px; text-align: right; flex-shrink: 0; }
     .phase-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 16px; }
     .phase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
     .phase-num { width: 30px; height: 30px; border-radius: 8px; background: var(--gold-subtle); color: var(--gold); font-size: 0.82rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-border); }
     .phase-title { font-size: 0.92rem; font-weight: 700; }
     .phase-sub { font-size: 0.75rem; color: var(--text-3); margin-top: 2px; }
+    .pillar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .pillar-num { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 10px; }
+    .pillar-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+    .pillar-desc { font-size: 0.78rem; color: var(--text-2); line-height: 1.55; }
+    .wardrobe-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.83rem; color: var(--text-2); align-items: flex-start; }
+    .wardrobe-item:last-child { border-bottom: none; }
+    .wardrobe-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 9px; }
   </style>
 </head>
 <body>
@@ -39,13 +46,14 @@
       <a href="ceo-development.html" class="active">CEO</a>
       <a href="gym.html">Gym</a>
     </div>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
   <section class="hero" style="min-height:40vh;">
     <div class="container">
       <p class="hero-label anim-up">Professional development</p>
       <h1 class="hero-title anim-up anim-up-1" style="font-size:clamp(2.4rem,5vw,3.8rem);">CEO<br>Development</h1>
-      <p class="hero-sub anim-up anim-up-2">The skills, contacts, and professional presence you're building before you take the CEO seat at Amaea. Everything between now and Sept 2028.</p>
+      <p class="hero-sub anim-up anim-up-2">The skills, contacts, and professional presence you are building before you take the CEO seat at Amaea. Everything between now and Sept 2028.</p>
     </div>
   </section>
 
@@ -55,40 +63,40 @@
       <div class="section-intro anim-up">
         <p class="eyebrow">GTM assets</p>
         <h2 class="headline">Key relationships to activate</h2>
-        <p class="body">These are your unfair advantages — relationships most founders spend years trying to build. You already have them.</p>
+        <p class="body">These are your unfair advantages, relationships most founders spend years trying to build. You already have them.</p>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
 
         <div class="contact-card anim-up anim-up-1">
-          <span class="tag tag-gold">🔥 Most urgent</span>
+          <span class="tag tag-gold">Most urgent</span>
           <h3 class="contact-name">Intelliflo</h3>
           <p class="contact-role">Leading back-office software for UK IFA firms</p>
-          <p class="contact-desc">Conference June/July 2026 — just you and your line manager. Prepare who to meet. Have your 60-second Amaea description ready. Leave with at least two contacts in their partnership team.</p>
+          <p class="contact-desc">Conference June/July 2026, just you and your line manager. Prepare who to meet. Have your 60-second Amaea description ready. Leave with at least two contacts in their partnership team.</p>
           <p class="contact-timing">June/July 2026</p>
         </div>
 
         <div class="contact-card anim-up anim-up-2">
           <span class="tag tag-muted">Keep warm</span>
           <h3 class="contact-name">Robin Powell</h3>
-          <p class="contact-role">Financial journalist — Evidence-Based Investor</p>
-          <p class="contact-desc">Already interviewed you at his request. A newsletter feature reaches exactly the IFAs who are your target clients. Warm the relationship now — don't wait until you need it.</p>
+          <p class="contact-role">Financial journalist, Evidence-Based Investor</p>
+          <p class="contact-desc">Already interviewed you at his request. A newsletter feature reaches exactly the IFAs who are your target clients. Warm the relationship now, do not wait until you need it.</p>
           <p class="contact-timing">Before launch 2028</p>
         </div>
 
         <div class="contact-card anim-up anim-up-3">
           <span class="tag tag-muted">Keep warm</span>
           <h3 class="contact-name">CISI CEO</h3>
-          <p class="contact-role">Chartered Institute for Securities & Investment</p>
-          <p class="contact-desc">45,000 members — all regulated professionals. A CISI endorsement removes the biggest trust objection for new clients. Explore a formal partnership or distribution arrangement.</p>
+          <p class="contact-role">Chartered Institute for Securities &amp; Investment</p>
+          <p class="contact-desc">45,000 members, all regulated professionals. A CISI endorsement removes the biggest trust objection for new clients. Explore a formal partnership or distribution arrangement.</p>
           <p class="contact-timing">Before launch 2028</p>
         </div>
 
         <div class="contact-card anim-up anim-up-4">
           <span class="tag tag-muted">Plan now</span>
           <h3 class="contact-name">FP Advance</h3>
-          <p class="contact-role">Industry conference — financial planning community</p>
-          <p class="contact-desc">You already have a reputation here. 6 job offers from 2 minutes. When you return as a founder, you're not a stranger — you're a known quantity who took the leap.</p>
+          <p class="contact-role">Industry conference, financial planning community</p>
+          <p class="contact-desc">You already have a reputation here. 6 job offers from 2 minutes on stage. When you return as a founder, you are not a stranger, you are a known quantity who took the leap.</p>
           <p class="contact-timing">At launch 2028</p>
         </div>
 
@@ -106,21 +114,21 @@
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
         <div class="anim-up">
-          <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:16px;">Build now — while at Lucent</p>
+          <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:16px;">Build now, while at Lucent</p>
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
             <div class="skill-row"><span class="skill-name">FCA regulatory depth</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="65%"></div></div><span class="skill-when">Now</span></div>
             <div class="skill-row"><span class="skill-name">B2B consultative sales</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="42%"></div></div><span class="skill-when">Now</span></div>
             <div class="skill-row"><span class="skill-name">SaaS financial modelling</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="18%"></div></div><span class="skill-when">Now</span></div>
-            <div class="skill-row"><span class="skill-name">Communication & story</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="62%"></div></div><span class="skill-when">Now</span></div>
+            <div class="skill-row"><span class="skill-name">Communication &amp; story</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="62%"></div></div><span class="skill-when">Now</span></div>
           </div>
         </div>
         <div class="anim-up anim-up-2">
           <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:16px;">Develop through 2027</p>
           <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
-            <div class="skill-row"><span class="skill-name">Fundraising & investors</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="10%"></div></div><span class="skill-when">2026–27</span></div>
+            <div class="skill-row"><span class="skill-name">Fundraising &amp; investors</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="10%"></div></div><span class="skill-when">2026–27</span></div>
             <div class="skill-row"><span class="skill-name">Product thinking (CEO)</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="14%"></div></div><span class="skill-when">2026–27</span></div>
-            <div class="skill-row"><span class="skill-name">Legal & commercial basics</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="10%"></div></div><span class="skill-when">2026–27</span></div>
-            <div class="skill-row"><span class="skill-name">Marketing & positioning</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="26%"></div></div><span class="skill-when">2026–27</span></div>
+            <div class="skill-row"><span class="skill-name">Legal &amp; commercial basics</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="10%"></div></div><span class="skill-when">2026–27</span></div>
+            <div class="skill-row"><span class="skill-name">Marketing &amp; positioning</span><div class="skill-bar-track"><div class="skill-bar-fill" data-width="26%"></div></div><span class="skill-when">2026–27</span></div>
           </div>
         </div>
       </div>
@@ -141,37 +149,112 @@
         <div class="card anim-up anim-up-1">
           <div style="font-size:1.4rem;margin-bottom:14px;">✦</div>
           <h3 class="title mb-3">Personal brand</h3>
-          <p class="body mb-4">The story of who you are needs to be consistent across every touchpoint — LinkedIn, conference introductions, how you write emails, how you show up in a room. You are already building this. The FP Advance speech and the Robin Powell interview are the foundation.</p>
+          <p class="body mb-4">The story of who you are needs to be consistent across every touchpoint. LinkedIn, conference introductions, how you write emails, how you show up in a room. You are already building this. The FP Advance speech and the Robin Powell interview are the foundation.</p>
           <div>
-            <div class="check-item"><div class="check-box progress"></div><div class="check-text"><strong>LinkedIn profile</strong> positioned as FCA compliance expert and future founder — not just employee</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Post once a week</strong> on FCA compliance, Consumer Duty, or IFA industry topics — build authority before launch</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Prepare a 2-minute founder story</strong> — why Amaea, why you, why now. Practised until it's effortless</div></div>
-            <div class="check-item"><div class="check-box progress"></div><div class="check-text"><strong>Speaking reputation established</strong> — FP Advance, CISI talk already done</div></div>
+            <div class="check-item"><div class="check-box progress" data-key="brand-1" data-initial="progress"></div><div class="check-text"><strong>LinkedIn profile</strong> positioned as FCA compliance expert and future founder, not just employee</div></div>
+            <div class="check-item"><div class="check-box" data-key="brand-2"></div><div class="check-text"><strong>Post once a week</strong> on FCA compliance, Consumer Duty, or IFA industry topics, build authority before launch</div></div>
+            <div class="check-item"><div class="check-box" data-key="brand-3"></div><div class="check-text"><strong>Prepare a 2-minute founder story,</strong> why Amaea, why you, why now. Practised until it is effortless</div></div>
+            <div class="check-item"><div class="check-box progress" data-key="brand-4" data-initial="progress"></div><div class="check-text"><strong>Speaking reputation established,</strong> FP Advance, CISI talk already done</div></div>
           </div>
         </div>
 
         <div class="card anim-up anim-up-2">
           <div style="font-size:1.4rem;margin-bottom:14px;">◆</div>
-          <h3 class="title mb-3">Appearance & presence</h3>
-          <p class="body mb-4">How you look and carry yourself signals how you see yourself before you've said a word. A CEO's appearance is a deliberate choice — not vanity, strategy. Authoritative, polished, and entirely yours.</p>
+          <h3 class="title mb-3">Appearance &amp; presence</h3>
+          <p class="body mb-4">How you look and carry yourself signals how you see yourself before you have said a word. A CEO's appearance is a deliberate choice, not vanity. Authoritative, polished, and entirely yours.</p>
           <div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Define a signature style</strong> — a consistent aesthetic that reads as confident and professional in any room</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Conference-ready wardrobe</strong> — know exactly what you wear to FP Advance, Intelliflo, CISI events</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Physical presence</strong> — posture, eye contact, pacing. The gym is part of this. How you hold yourself changes how a room receives you</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Headshots updated</strong> — professional photos that match the CEO you're becoming, not the employee you are now</div></div>
+            <div class="check-item"><div class="check-box" data-key="app-1"></div><div class="check-text"><strong>Define a signature style,</strong> a consistent aesthetic that reads as confident and professional in any room</div></div>
+            <div class="check-item"><div class="check-box" data-key="app-2"></div><div class="check-text"><strong>Conference-ready wardrobe,</strong> know exactly what you wear to FP Advance, Intelliflo, CISI events</div></div>
+            <div class="check-item"><div class="check-box" data-key="app-3"></div><div class="check-text"><strong>Physical presence,</strong> posture, eye contact, pacing. The gym is part of this. How you hold yourself changes how a room receives you</div></div>
+            <div class="check-item"><div class="check-box" data-key="app-4"></div><div class="check-text"><strong>Headshots updated,</strong> professional photos that match the CEO you are becoming, not the employee you are now</div></div>
           </div>
         </div>
 
         <div class="card anim-up anim-up-3">
           <div style="font-size:1.4rem;margin-bottom:14px;">◈</div>
           <h3 class="title mb-3">CEO mindset</h3>
-          <p class="body mb-4">Being a CEO isn't a title you get — it's a way of seeing the world you practise until it's natural. The shift from employee to founder happens in your thinking long before it happens on paper.</p>
+          <p class="body mb-4">Being a CEO is not a title you get, it is a way of seeing the world you practise until it is natural. The shift from employee to founder happens in your thinking long before it happens on paper.</p>
           <div>
-            <div class="check-item"><div class="check-box progress"></div><div class="check-text"><strong>Ownership thinking</strong> — treat everything at Lucent as yours to learn from, not just yours to survive</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Comfort with being the decision-maker</strong> — practise making calls without asking for permission or approval, even on small things</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Read:</strong> The Hard Thing About Hard Things (Horowitz), Zero to One (Thiel), Shoe Dog (Knight)</div></div>
-            <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Monthly founder review</strong> — 15 mins: what did I learn, what did I observe, what am I building toward</div></div>
+            <div class="check-item"><div class="check-box progress" data-key="mind-1" data-initial="progress"></div><div class="check-text"><strong>Ownership thinking,</strong> treat everything at Lucent as yours to learn from, not just yours to survive</div></div>
+            <div class="check-item"><div class="check-box" data-key="mind-2"></div><div class="check-text"><strong>Comfort with being the decision-maker,</strong> practise making calls without asking for permission or approval, even on small things</div></div>
+            <div class="check-item"><div class="check-box" data-key="mind-3"></div><div class="check-text"><strong>Read:</strong> The Hard Thing About Hard Things (Horowitz), Zero to One (Thiel), Shoe Dog (Knight)</div></div>
+            <div class="check-item"><div class="check-box" data-key="mind-4"></div><div class="check-text"><strong>Monthly founder review,</strong> 15 mins: what did I learn, what did I observe, what am I building toward</div></div>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Appearance moodboard -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-intro anim-up">
+        <p class="eyebrow">Appearance</p>
+        <h2 class="headline">The aesthetic</h2>
+        <p class="body">How you want to be seen before you have said a word. A CEO's visual language is deliberate, not default. This is yours.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;" class="anim-up">
+        <div class="pillar-card">
+          <p class="pillar-num">01</p>
+          <p class="pillar-title">Structured</p>
+          <p class="pillar-desc">Tailored fit. Clean cuts. Nothing that hangs wrong. Every piece chosen, not grabbed.</p>
+        </div>
+        <div class="pillar-card">
+          <p class="pillar-num">02</p>
+          <p class="pillar-title">Minimal</p>
+          <p class="pillar-desc">One focal point per look. Quality reads from across the room. Quantity does not.</p>
+        </div>
+        <div class="pillar-card">
+          <p class="pillar-num">03</p>
+          <p class="pillar-title">Authoritative</p>
+          <p class="pillar-desc">Colours and silhouettes that hold a room. Nothing apologetic. Nothing that shrinks.</p>
+        </div>
+        <div class="pillar-card">
+          <p class="pillar-num">04</p>
+          <p class="pillar-title">Signature</p>
+          <p class="pillar-desc">Consistent enough to be recognisable. People know your aesthetic before they know your name.</p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="anim-up anim-up-2">
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;">
+          <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:20px;">CEO palette</p>
+          <div style="display:flex;gap:12px;justify-content:flex-start;margin-bottom:24px;">
+            <div style="text-align:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#0d1b2a;margin:0 auto 8px;border:1px solid rgba(255,255,255,0.12);"></div>
+              <p style="font-size:0.65rem;color:var(--text-3);">Midnight</p>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#f2ede4;margin:0 auto 8px;border:1px solid rgba(255,255,255,0.1);"></div>
+              <p style="font-size:0.65rem;color:var(--text-3);">Bone</p>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#7a5c3a;margin:0 auto 8px;"></div>
+              <p style="font-size:0.65rem;color:var(--text-3);">Cognac</p>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#2c3040;margin:0 auto 8px;"></div>
+              <p style="font-size:0.65rem;color:var(--text-3);">Slate</p>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:40px;height:40px;border-radius:50%;background:#ffffff;margin:0 auto 8px;border:1px solid rgba(255,255,255,0.15);"></div>
+              <p style="font-size:0.65rem;color:var(--text-3);">White</p>
+            </div>
+          </div>
+          <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:10px;">The rule</p>
+          <p style="font-size:0.81rem;color:var(--text-2);line-height:1.65;">Monochrome as your default. Navy or black with one neutral. Colour as a deliberate signal, not a filler. The palette should work in a Canary Wharf meeting and a conference keynote equally well.</p>
+        </div>
+
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;">
+          <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:16px;">Wardrobe signals</p>
+          <div class="wardrobe-item">A well-fitted blazer that makes you feel like you own the room, not one that fits like you borrowed it</div>
+          <div class="wardrobe-item">Trousers as your conference default: clean lines, nothing to fidget with, no hem worries on a stage</div>
+          <div class="wardrobe-item">One quality signature accessory worn consistently, a watch, a pendant, or a ring. Consistency builds recognisability</div>
+          <div class="wardrobe-item">Shoes you can stand in for six hours and still feel in control. Comfort and authority are not opposites</div>
+          <div class="wardrobe-item">A structured bag that reads as intentional when it sits on a boardroom table, not an afterthought</div>
         </div>
 
       </div>
@@ -184,47 +267,48 @@
       <div class="section-intro anim-up">
         <p class="eyebrow">Pre-launch checklist</p>
         <h2 class="headline">Now to Sept 2028</h2>
+        <p class="body" style="font-size:0.8rem;margin-top:8px;color:var(--text-3);">Click any item to mark it done. Progress is saved automatically.</p>
       </div>
 
       <div class="phase-block anim-up">
         <div class="phase-header">
           <div class="phase-num">1</div>
-          <div><div class="phase-title">Build FCA expertise</div><div class="phase-sub">Now — end of 2026</div></div>
+          <div><div class="phase-title">Build FCA expertise</div><div class="phase-sub">Now to end of 2026</div></div>
         </div>
-        <div class="check-item"><div class="check-box progress"></div><div class="check-text"><strong>Map every FCA compliance pain point at Lucent</strong> — document every manual task, audit pain, and suitability headache as future Amaea features</div><div class="check-meta">Ongoing</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Study COBS, SYSC, Consumer Duty deeply</strong> — genuine depth so you can speak credibly to clients and investors</div><div class="check-meta">2026</div></div>
-        <div class="check-item"><div class="check-box progress"></div><div class="check-text"><strong>Attend Intelliflo conference</strong> — prepare contacts to meet, 60-second Amaea description, leave with partnership conversations started</div><div class="check-meta">Jun/Jul 2026</div></div>
+        <div class="check-item"><div class="check-box progress" data-key="p1-1" data-initial="progress"></div><div class="check-text"><strong>Map every FCA compliance pain point at Lucent,</strong> document every manual task, audit pain, and suitability headache as future Amaea features</div><div class="check-meta">Ongoing</div></div>
+        <div class="check-item"><div class="check-box" data-key="p1-2"></div><div class="check-text"><strong>Study COBS, SYSC, Consumer Duty deeply,</strong> genuine depth so you can speak credibly to clients and investors</div><div class="check-meta">2026</div></div>
+        <div class="check-item"><div class="check-box progress" data-key="p1-3" data-initial="progress"></div><div class="check-text"><strong>Attend Intelliflo conference,</strong> prepare contacts to meet, 60-second Amaea description, leave with partnership conversations started</div><div class="check-meta">Jun/Jul 2026</div></div>
       </div>
 
       <div class="phase-block anim-up">
         <div class="phase-header">
           <div class="phase-num">2</div>
-          <div><div class="phase-title">Validate the business</div><div class="phase-sub">2026 — mid 2027</div></div>
+          <div><div class="phase-title">Validate the business</div><div class="phase-sub">2026 to mid 2027</div></div>
         </div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Run 15–20 customer discovery interviews</strong> with compliance officers and IFA practice managers — validate the pain, not the solution</div><div class="check-meta">2026–27</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Get 2–3 firms to commit as beta clients</strong> — even informal written interest from your Lucent network</div><div class="check-meta">2027</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Build Amaea's financial model</strong> — ARR, CAC, LTV, churn, runway. Know the numbers before you leave Lucent</div><div class="check-meta">2027</div></div>
+        <div class="check-item"><div class="check-box" data-key="p2-1"></div><div class="check-text"><strong>Run 15–20 customer discovery interviews</strong> with compliance officers and IFA practice managers. Validate the pain, not the solution</div><div class="check-meta">2026–27</div></div>
+        <div class="check-item"><div class="check-box" data-key="p2-2"></div><div class="check-text"><strong>Get 2–3 firms to commit as beta clients,</strong> even informal written interest from your Lucent network</div><div class="check-meta">2027</div></div>
+        <div class="check-item"><div class="check-box" data-key="p2-3"></div><div class="check-text"><strong>Build Amaea's financial model,</strong> ARR, CAC, LTV, churn, runway. Know the numbers before you leave Lucent</div><div class="check-meta">2027</div></div>
       </div>
 
       <div class="phase-block anim-up">
         <div class="phase-header">
           <div class="phase-num">3</div>
-          <div><div class="phase-title">Build the foundations</div><div class="phase-sub">Mid 2027 — mid 2028</div></div>
+          <div><div class="phase-title">Build the foundations</div><div class="phase-sub">Mid 2027 to mid 2028</div></div>
         </div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Check employment contract</strong> — IP clauses and non-solicitation terms. Know your obligations now, not on the way out</div><div class="check-meta">2027</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Save 12–18 months personal living costs</strong> before leaving Lucent</div><div class="check-meta">2027–28</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Build personal brand in FCA compliance</strong> — LinkedIn, FinTech Scotland, warm up Robin Powell and CISI CEO</div><div class="check-meta">2027–28</div></div>
+        <div class="check-item"><div class="check-box" data-key="p3-1"></div><div class="check-text"><strong>Check employment contract,</strong> IP clauses and non-solicitation terms. Know your obligations now, not on the way out</div><div class="check-meta">2027</div></div>
+        <div class="check-item"><div class="check-box" data-key="p3-2"></div><div class="check-text"><strong>Save 12–18 months personal living costs</strong> before leaving Lucent</div><div class="check-meta">2027–28</div></div>
+        <div class="check-item"><div class="check-box" data-key="p3-3"></div><div class="check-text"><strong>Build personal brand in FCA compliance,</strong> LinkedIn, FinTech Scotland, warm up Robin Powell and CISI CEO</div><div class="check-meta">2027–28</div></div>
       </div>
 
       <div class="phase-block anim-up">
         <div class="phase-header">
           <div class="phase-num">4</div>
-          <div><div class="phase-title">Launch ready</div><div class="phase-sub">Mid 2028 — Sept 2028</div></div>
+          <div><div class="phase-title">Launch ready</div><div class="phase-sub">Mid 2028 to Sept 2028</div></div>
         </div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Secure first paying customer before official launch</strong> — even at a discount. Revenue before launch day changes everything</div><div class="check-meta">2028</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Confirm Robin Powell newsletter feature</strong> timed around launch</div><div class="check-meta">2028</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Confirm CISI endorsement</strong> and FP Advance launch speech slot</div><div class="check-meta">2028</div></div>
-        <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Hand over Lucent cleanly</strong> — professional exit, no conflicts</div><div class="check-meta">Sept 2028</div></div>
+        <div class="check-item"><div class="check-box" data-key="p4-1"></div><div class="check-text"><strong>Secure first paying customer before official launch,</strong> even at a discount. Revenue before launch day changes everything</div><div class="check-meta">2028</div></div>
+        <div class="check-item"><div class="check-box" data-key="p4-2"></div><div class="check-text"><strong>Confirm Robin Powell newsletter feature</strong> timed around launch</div><div class="check-meta">2028</div></div>
+        <div class="check-item"><div class="check-box" data-key="p4-3"></div><div class="check-text"><strong>Confirm CISI endorsement</strong> and FP Advance launch speech slot</div><div class="check-meta">2028</div></div>
+        <div class="check-item"><div class="check-box" data-key="p4-4"></div><div class="check-text"><strong>Hand over Lucent cleanly,</strong> professional exit, no conflicts</div><div class="check-meta">Sept 2028</div></div>
       </div>
 
     </div>
@@ -232,7 +316,7 @@
 
   <footer>
     <div class="container text-center">
-      <p><a href="index.html">← Dashboard</a> &nbsp;·&nbsp; <a href="life-roadmap.html">Life Roadmap</a></p>
+      <p><a href="index.html">← Dashboard</a> &nbsp;·&nbsp; <a href="life-roadmap.html">Life Roadmap</a> &nbsp;·&nbsp; <a href="cofounder.html">Co-founder Framework</a></p>
     </div>
   </footer>
 

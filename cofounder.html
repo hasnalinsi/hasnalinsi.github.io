@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Co-founder Framework, Hasna</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤝</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .role-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+    .role-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); margin-bottom: 16px; }
+    .role-name { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+    .role-title { font-size: 0.8rem; color: var(--gold); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 20px; }
+    .role-list { list-style: none; }
+    .role-list li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; color: var(--text-2); align-items: flex-start; }
+    .role-list li:last-child { border-bottom: none; }
+    .role-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; margin-top: 7px; }
+    .tier-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 12px; transition: border-color 0.2s var(--ease); }
+    .tier-card:hover { border-color: var(--border-2); }
+    .tier-num { display: inline-block; font-size: 0.7rem; font-weight: 700; background: var(--gold-subtle); color: var(--gold); border: 1px solid var(--gold-border); border-radius: 6px; padding: 2px 8px; margin-bottom: 10px; }
+    .tier-title { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .tier-owner { font-size: 0.75rem; color: var(--text-3); margin-bottom: 14px; }
+    .tier-items { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tier-item { font-size: 0.75rem; background: var(--surface-2); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; color: var(--text-2); }
+    .cadence-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .cadence-row:last-child { border-bottom: none; }
+    .cadence-day { font-size: 0.72rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; min-width: 76px; padding-top: 2px; flex-shrink: 0; }
+    .cadence-info { flex: 1; }
+    .cadence-title { font-size: 0.88rem; font-weight: 600; margin-bottom: 3px; }
+    .cadence-desc { font-size: 0.8rem; color: var(--text-2); line-height: 1.55; }
+    .rule-card { background: var(--surface); border: 1px solid var(--border); border-left: 2px solid var(--gold); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 10px; }
+    .rule-title { font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+    .rule-desc { font-size: 0.82rem; color: var(--text-2); line-height: 1.6; }
+    .step-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+    .step-card:hover { border-color: var(--border-2); }
+    .step-num { font-size: 0.7rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+    .step-title { font-size: 0.88rem; font-weight: 700; margin-bottom: 8px; }
+    .step-desc { font-size: 0.8rem; color: var(--text-2); line-height: 1.55; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">H</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="life-roadmap.html">Roadmap</a>
+      <a href="emotional-development.html">Emotional</a>
+      <a href="ceo-development.html">CEO</a>
+      <a href="gym.html">Gym</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <section class="hero" style="min-height:40vh;">
+    <div class="container">
+      <p class="hero-label anim-up">Amaea founding team</p>
+      <h1 class="hero-title anim-up anim-up-1" style="font-size:clamp(2.4rem,5vw,3.8rem);">Co-founder<br>Framework</h1>
+      <p class="hero-sub anim-up anim-up-2">The structure that makes building a company with your partner work. Clear roles, a decision framework, and a protocol for keeping the personal and the professional separate without losing either.</p>
+    </div>
+  </section>
+
+  <!-- Role split -->
+  <section>
+    <div class="container">
+      <div class="section-intro anim-up">
+        <p class="eyebrow">The model</p>
+        <h2 class="headline">Who owns what</h2>
+        <p class="body">Clear ownership is not about hierarchy, it is how two people who trust each other stop second-guessing each other and go faster.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+
+        <div class="role-card anim-up">
+          <p class="role-label">Co-founder</p>
+          <p class="role-name">Hasna</p>
+          <p class="role-title">Chief Executive Officer</p>
+          <ul class="role-list">
+            <li>Vision, narrative, and the founding story of Amaea</li>
+            <li>IFA market: customer discovery, relationships, and sales</li>
+            <li>FCA regulatory domain and compliance product direction</li>
+            <li>Pricing, packaging, and commercial model</li>
+            <li>Brand, marketing, and external communications</li>
+            <li>Fundraising, investor relations, and board management</li>
+            <li>Culture and people strategy as the company grows</li>
+          </ul>
+        </div>
+
+        <div class="role-card anim-up anim-up-2">
+          <p class="role-label">Co-founder</p>
+          <p class="role-name">Milan</p>
+          <p class="role-title">Chief Technology Officer</p>
+          <ul class="role-list">
+            <li>Technical architecture and all engineering decisions</li>
+            <li>Product build: what gets built, in what order, to what standard</li>
+            <li>Infrastructure, security, and data handling</li>
+            <li>AI/ML layer: model selection, RAG pipeline, accuracy</li>
+            <li>Integrations: Intelliflo and future platform partnerships</li>
+            <li>Engineering hiring and technical culture</li>
+            <li>Technical due diligence in any fundraise or exit process</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div style="background:var(--surface-2);border:1px solid var(--border-2);border-radius:var(--radius);padding:20px 24px;margin-top:16px;" class="anim-up">
+        <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:8px;">Shared ownership</p>
+        <p style="font-size:0.84rem;color:var(--text-2);line-height:1.65;">All major strategic pivots, co-founder compensation, equity decisions, hiring of senior roles, and decisions that materially change the direction of Amaea require both co-founders to agree. Neither overrules the other here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Decision matrix -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="section-intro anim-up">
+        <p class="eyebrow">Decision framework</p>
+        <h2 class="headline">Who decides what</h2>
+        <p class="body">Three tiers. Most decisions are Tier 1 or 2. Tier 3 requires consensus. When in doubt, name the tier out loud before the conversation starts.</p>
+      </div>
+
+      <div class="tier-card anim-up">
+        <span class="tier-num">Tier 1</span>
+        <p class="tier-title">Hasna decides</p>
+        <p class="tier-owner">Commercial and domain decisions within the CEO mandate</p>
+        <div class="tier-items">
+          <span class="tier-item">Client pricing</span>
+          <span class="tier-item">Sales strategy</span>
+          <span class="tier-item">Brand direction</span>
+          <span class="tier-item">Compliance positioning</span>
+          <span class="tier-item">Conference attendance</span>
+          <span class="tier-item">Partnership terms</span>
+          <span class="tier-item">Investor narrative</span>
+          <span class="tier-item">Marketing spend</span>
+        </div>
+      </div>
+
+      <div class="tier-card anim-up">
+        <span class="tier-num">Tier 2</span>
+        <p class="tier-title">Milan decides</p>
+        <p class="tier-owner">Technical and product decisions within the CTO mandate</p>
+        <div class="tier-items">
+          <span class="tier-item">Tech stack choices</span>
+          <span class="tier-item">Infrastructure provider</span>
+          <span class="tier-item">Build vs buy</span>
+          <span class="tier-item">API design</span>
+          <span class="tier-item">AI model selection</span>
+          <span class="tier-item">Release schedule</span>
+          <span class="tier-item">Security architecture</span>
+          <span class="tier-item">Engineering tooling</span>
+        </div>
+      </div>
+
+      <div class="tier-card anim-up" style="border-color:var(--gold-border);">
+        <span class="tier-num">Tier 3</span>
+        <p class="tier-title">Both must agree</p>
+        <p class="tier-owner">Decisions that define the company or the co-founder relationship</p>
+        <div class="tier-items">
+          <span class="tier-item">Equity structure</span>
+          <span class="tier-item">Fundraising terms</span>
+          <span class="tier-item">Major pivots</span>
+          <span class="tier-item">Senior hires (first 10)</span>
+          <span class="tier-item">Co-founder salaries</span>
+          <span class="tier-item">Exit decisions</span>
+          <span class="tier-item">Legal structure</span>
+          <span class="tier-item">Investor selection</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Separation protocol + Cadence -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+
+        <div class="anim-up">
+          <div class="section-intro">
+            <p class="eyebrow">Boundaries</p>
+            <h2 class="headline">Keeping work in work</h2>
+          </div>
+          <div class="rule-card">
+            <p class="rule-title">Work has a container</p>
+            <p class="rule-desc">Amaea conversations happen in working hours or a designated session. Not at dinner, not in bed, not in the first hour of the morning. The container makes the rest of life safe.</p>
+          </div>
+          <div class="rule-card">
+            <p class="rule-title">The co-founder hat is removable</p>
+            <p class="rule-desc">Milan is your CTO at work. He is your partner at home. If you are not sure which mode you are in, ask: "Is this a work conversation or a relationship conversation?" That one question prevents most conflicts.</p>
+          </div>
+          <div class="rule-card">
+            <p class="rule-title">Monthly founder date</p>
+            <p class="rule-desc">One evening a month, dedicated to talking about the future you are building together. Not operational, not problem-solving. The long game. Use it to remember why you are doing this.</p>
+          </div>
+          <div class="rule-card">
+            <p class="rule-title">Annual co-founder reset</p>
+            <p class="rule-desc">Once a year, a proper co-founder review. How are roles working, what has changed, are the decision tiers right, what would you change? Do this before resentment has a chance to build.</p>
+          </div>
+        </div>
+
+        <div class="anim-up anim-up-2">
+          <div class="section-intro">
+            <p class="eyebrow">Rhythm</p>
+            <h2 class="headline">Weekly cadence</h2>
+          </div>
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;">
+            <div class="cadence-row">
+              <p class="cadence-day">Monday</p>
+              <div class="cadence-info">
+                <p class="cadence-title">Co-founder sync (30 min)</p>
+                <p class="cadence-desc">What are we each working on this week? Any blockers that need the other person? Standing agenda, no prep required.</p>
+              </div>
+            </div>
+            <div class="cadence-row">
+              <p class="cadence-day">Thursday</p>
+              <div class="cadence-info">
+                <p class="cadence-title">Product check-in (30 min)</p>
+                <p class="cadence-desc">Progress against build targets. Anything that needs a joint decision? Focused, not a status report.</p>
+              </div>
+            </div>
+            <div class="cadence-row">
+              <p class="cadence-day">Monthly</p>
+              <div class="cadence-info">
+                <p class="cadence-title">Metrics and direction review (1 hr)</p>
+                <p class="cadence-desc">KPIs, pipeline, runway, what's working and what needs to change. Strategic layer, not tactical.</p>
+              </div>
+            </div>
+            <div class="cadence-row">
+              <p class="cadence-day">Async</p>
+              <div class="cadence-info">
+                <p class="cadence-title">Default communication</p>
+                <p class="cadence-desc">Use a dedicated work channel, not personal WhatsApp, for day-to-day Amaea updates. Keeps work searchable and out of personal space.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Conflict protocol -->
+  <section style="padding-top:0;padding-bottom:80px;">
+    <div class="container">
+      <div class="section-intro anim-up">
+        <p class="eyebrow">When you disagree</p>
+        <h2 class="headline">The conflict protocol</h2>
+        <p class="body">Disagreement between co-founders is normal and useful. It becomes dangerous when it has no structure. This protocol turns a conflict into a conversation.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;" class="anim-up">
+        <div class="step-card">
+          <p class="step-num">Step 1</p>
+          <p class="step-title">Name the tier</p>
+          <p class="step-desc">Is this Tier 1, 2, or 3? If Tier 1 or 2, the owner has the call. If Tier 3, you work through it together. Naming the tier first removes half the tension.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">Step 2</p>
+          <p class="step-title">24-hour rule</p>
+          <p class="step-desc">No major decisions in the middle of a disagreement. If it is heated, park it for 24 hours. The decision almost never needs to be made in the moment.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">Step 3</p>
+          <p class="step-title">State the real concern</p>
+          <p class="step-desc">"I am worried that..." not "You always...". What is the underlying fear or risk? Most co-founder conflicts are about something one layer deeper than the surface issue.</p>
+        </div>
+        <div class="step-card">
+          <p class="step-num">Step 4</p>
+          <p class="step-title">Bring in a third view</p>
+          <p class="step-desc">If you have genuinely tried and cannot resolve it, an advisor or mentor breaks the deadlock. Not to arbitrate, but to give a perspective neither of you can see.</p>
+        </div>
+      </div>
+
+      <div style="background:var(--gold-subtle);border:1px solid var(--gold-border);border-radius:var(--radius);padding:24px;margin-top:24px;" class="anim-up">
+        <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);margin-bottom:10px;">The foundation</p>
+        <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7;max-width:680px;">You have already been tested by pressure most co-founder pairs never face, and you came out stronger. The framework exists to protect what you have built between you, not to replace trust with process. Use it when things get complicated. Trust each other the rest of the time.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container text-center">
+      <p><a href="index.html">← Dashboard</a> &nbsp;·&nbsp; <a href="ceo-development.html">CEO Development</a> &nbsp;·&nbsp; <a href="life-roadmap.html">Life Roadmap</a></p>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
