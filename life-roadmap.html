@@ -3,74 +3,29 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Life Roadmap, Hasna</title>
+  <title>Life Roadmap — Hasna</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    :root { --gold: #d4a843; --gold-dark: #2a1f08; --gold-mid: #3d2e0f; --bg: #0a0805; --surface: #141008; --border: #2a2010; --text: #f5ead0; --muted: #8a7a5a; --dim: #3d3020; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); }
-    .navbar { background-color: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 0; position: sticky; top: 0; z-index: 100; }
-    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-mark { width: 36px; height: 36px; border-radius: 9px; background: linear-gradient(135deg, #d4a843, #f0c870); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; color: #0a0805; }
-    .nav-links { display: flex; gap: 8px; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-dark); }
-    .hero { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); padding: 72px 0 52px; border-bottom: 1px solid var(--border); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .eyebrow { color: var(--gold); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 10px; }
-    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 560px; margin-top: 10px; line-height: 1.7; }
-    section { padding: 52px 0; }
-    .alt-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .section-label { color: var(--gold); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
-    .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; }
-
-    /* Timeline */
-    .timeline { position: relative; padding-left: 36px; }
-    .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), var(--border)); }
-    .tl-item { position: relative; margin-bottom: 32px; }
-    .tl-item::before { content: ''; position: absolute; left: -30px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 3px solid var(--bg); }
-    .tl-item.future::before { background: var(--border); }
-    .tl-item.personal::before { background: #c9748a; }
-    .tl-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; transition: border-color 0.2s; }
-    .tl-card:hover { border-color: var(--gold); }
-    .tl-item.personal .tl-card:hover { border-color: #c9748a; }
-    .tl-year { color: var(--gold); font-size: 0.8rem; font-weight: 700; margin-bottom: 4px; }
-    .tl-item.personal .tl-year { color: #c9748a; }
-    .tl-item.future .tl-year { color: var(--dim); }
-    .tl-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .tl-item.future .tl-title { color: var(--muted); }
-    .tl-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
-    .tl-badge { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-bottom: 8px; }
-    .badge-career { background: var(--gold-dark); color: var(--gold); }
-    .badge-amaea { background: #1a2a1a; color: #5fb95f; }
-    .badge-personal { background: #2a1520; color: #c9748a; }
-    .badge-exit { background: #1a1a2a; color: #7a8abf; }
-
-    /* Phase cards */
-    .phase-card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; padding: 20px 24px; margin-bottom: 16px; }
-    .phase-title { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-    .phase-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
-
-    /* Legend */
-    .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--muted); }
-    .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
-
-    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 28px 0; text-align: center; }
-    footer p { color: var(--dim); font-size: 0.82rem; }
-    footer a { color: var(--gold); text-decoration: none; }
-    @media (max-width: 768px) { h1 { font-size: 1.9rem; } .nav-links { display: none; } }
+    .tl-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; transition: border-color 0.25s var(--ease), transform 0.25s var(--ease); }
+    .tl-card:hover { border-color: var(--border-2); transform: translateX(4px); }
+    .sidebar-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 12px; }
+    .sidebar-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; }
+    .sidebar-row:last-child { border-bottom: none; }
+    .legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+    .legend-item { display: flex; align-items: center; gap: 7px; font-size: 0.75rem; color: var(--text-2); }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .alert-card { background: var(--gold-subtle); border: 1px solid var(--gold-border); border-radius: var(--radius); padding: 20px; }
+    .alert-card .alert-label { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 6px; }
+    .alert-card p { font-size: 0.82rem; color: rgba(232,201,122,0.8); line-height: 1.6; }
   </style>
 </head>
 <body>
+<div class="page">
 
-<nav class="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">H</div></a>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">H</a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="life-roadmap.html" class="active">Roadmap</a>
@@ -78,149 +33,158 @@
       <a href="ceo-development.html">CEO</a>
       <a href="gym.html">Gym</a>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="hero">
-  <div class="container">
-    <div class="eyebrow">The long game</div>
-    <h1>Life Roadmap</h1>
-    <p>From Lucent to Amaea CEO, to founder exit. Every milestone mapped by age and year — career, business, and personal all in one view.</p>
-  </div>
-</div>
-
-<section>
-  <div class="container">
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div>Career & business</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#5fb95f;"></div>Amaea milestones</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#c9748a;"></div>Personal & family</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#7a8abf;"></div>Exit & legacy</div>
+  <section class="hero" style="min-height:40vh;">
+    <div class="container">
+      <p class="hero-label anim-up">The long game</p>
+      <h1 class="hero-title anim-up anim-up-1" style="font-size:clamp(2.4rem,5vw,3.8rem);">Life Roadmap</h1>
+      <p class="hero-sub anim-up anim-up-2">From Lucent to Amaea CEO, to founder exit. Every milestone mapped by age and year — career, business, and personal all in one view.</p>
     </div>
+  </section>
 
-    <div class="row g-5">
-      <div class="col-lg-8">
+  <section>
+    <div class="container">
+      <div class="legend anim-up">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div>Career & business</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#5fb95f;"></div>Amaea milestones</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#c9748a;"></div>Personal & family</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#7a8abf;"></div>Exit & legacy</div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;">
+
+        <!-- Timeline -->
         <div class="timeline">
 
-          <div class="tl-item">
+          <div class="tl-item anim-up">
+            <div class="tl-dot"></div>
             <div class="tl-card">
-              <div class="tl-year">Now — Sept 2028 · Age 24–27</div>
-              <span class="tl-badge badge-career">Career</span>
-              <div class="tl-title">Lucent — build the foundation</div>
-              <div class="tl-desc">Financial planning expertise, FCA regulatory depth, capital, and network. Treating every compliance pain point as future Amaea product research. Attending Intelliflo conference June/July 2026. Building personal brand at FP Advance and CISI.</div>
+              <p class="tl-year">Now — Sept 2028 &nbsp;·&nbsp; Age 24–27</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-gold">Career</span></div>
+              <h3 class="tl-title">Lucent — build the foundation</h3>
+              <p class="tl-desc mt-4">FCA regulatory depth, capital, and network. Treating every compliance pain point as future Amaea product research. Attending Intelliflo conference June/July 2026. Building personal brand at FP Advance and CISI.</p>
             </div>
           </div>
 
-          <div class="tl-item">
+          <div class="tl-item anim-up">
+            <div class="tl-dot"></div>
             <div class="tl-card">
-              <div class="tl-year">Sept 2028 · Age 27</div>
-              <span class="tl-badge badge-amaea">Amaea</span>
-              <div class="tl-title">Launch Amaea — FCA compliance platform</div>
-              <div class="tl-desc">Launch with Milan as CTO. First clients via FP Advance speech, Robin Powell newsletter, CISI endorsement, and Intelliflo integration. Target: 10–20 paying IFA firms within first 90 days.</div>
+              <p class="tl-year">Sept 2028 &nbsp;·&nbsp; Age 27</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-green">Amaea</span></div>
+              <h3 class="tl-title">Launch Amaea</h3>
+              <p class="tl-desc mt-4">Launch with Milan as CTO. First clients via FP Advance speech, Robin Powell newsletter, CISI endorsement, and Intelliflo integration. Target: 10–20 paying IFA firms within first 90 days.</p>
             </div>
           </div>
 
-          <div class="tl-item future">
+          <div class="tl-item anim-up">
+            <div class="tl-dot future"></div>
             <div class="tl-card">
-              <div class="tl-year">2029 · Age 28</div>
-              <span class="tl-badge badge-amaea">Amaea</span>
-              <div class="tl-title">Sales strategy and early traction</div>
-              <div class="tl-desc">Pipeline, outreach, pricing, positioning. Build retention. Aim for first 50+ IFA firms. Establish the compliance intelligence layer as the core product moat.</div>
+              <p class="tl-year future">2029 &nbsp;·&nbsp; Age 28</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-green">Amaea</span></div>
+              <h3 class="tl-title future">Sales strategy and early traction</h3>
+              <p class="tl-desc mt-4">Pipeline, outreach, pricing, positioning. Build retention. Aim for first 50+ IFA firms. Establish the compliance intelligence layer as the core product moat.</p>
             </div>
           </div>
 
-          <div class="tl-item future personal">
+          <div class="tl-item anim-up">
+            <div class="tl-dot personal"></div>
             <div class="tl-card">
-              <div class="tl-year">2029–2030 · Age 28–29</div>
-              <span class="tl-badge badge-personal">Personal</span>
-              <div class="tl-title">Marry Milan</div>
-              <div class="tl-desc">Start planning roughly a year after launch. Wedding either end of 2029 or 2030. Two years of Amaea runway before this — enough time to reach stability before adding wedding planning to the mix.</div>
+              <p class="tl-year personal">2029–2030 &nbsp;·&nbsp; Age 28–29</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-rose">Personal</span></div>
+              <h3 class="tl-title">Marry Milan</h3>
+              <p class="tl-desc mt-4">Start planning roughly a year after launch. Two years of Amaea runway before this — enough time to reach stability before wedding planning.</p>
             </div>
           </div>
 
-          <div class="tl-item future">
+          <div class="tl-item anim-up">
+            <div class="tl-dot future"></div>
             <div class="tl-card">
-              <div class="tl-year">2030–31 · Age 29–30</div>
-              <span class="tl-badge badge-amaea">Amaea</span>
-              <div class="tl-title">Expand within FCA — mortgages, insurance, investment management</div>
-              <div class="tl-desc">First expansion: adjacent FCA-regulated sectors. Same regulatory environment, same buyer profile, same credibility. Product adapts rather than rebuilds. This is the first multiplier on revenue.</div>
+              <p class="tl-year future">2030–31 &nbsp;·&nbsp; Age 29–30</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-green">Amaea</span></div>
+              <h3 class="tl-title future">Expand within FCA — mortgages, insurance, investment</h3>
+              <p class="tl-desc mt-4">Adjacent FCA-regulated sectors. Same regulatory environment, same buyer profile. Product adapts rather than rebuilds. First revenue multiplier.</p>
             </div>
           </div>
 
-          <div class="tl-item future personal">
+          <div class="tl-item anim-up">
+            <div class="tl-dot personal"></div>
             <div class="tl-card">
-              <div class="tl-year">2031–32 · Age 30–31</div>
-              <span class="tl-badge badge-personal">Personal</span>
-              <div class="tl-title">First child</div>
-              <div class="tl-desc">Target age 30–31. Build parental leave structure and business continuity plan before this point. A strong second-in-command and documented operations make this survivable as a founder.</div>
+              <p class="tl-year personal">2031–32 &nbsp;·&nbsp; Age 30–31</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-rose">Personal</span></div>
+              <h3 class="tl-title">First child</h3>
+              <p class="tl-desc mt-4">Target age 30–31. Build parental leave structure and business continuity plan well before this. A strong second-in-command makes this survivable as a founder.</p>
             </div>
           </div>
 
-          <div class="tl-item future personal">
+          <div class="tl-item anim-up">
+            <div class="tl-dot personal"></div>
             <div class="tl-card">
-              <div class="tl-year">2033–34 · Age 32–33</div>
-              <span class="tl-badge badge-personal">Personal</span>
-              <div class="tl-title">Second child</div>
-              <div class="tl-desc">Full FCA coverage by this point. Business should have an ops layer that doesn't require founder involvement in day-to-day — this is the critical structure to build before 2031.</div>
+              <p class="tl-year personal">2033–34 &nbsp;·&nbsp; Age 32–33</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-rose">Personal</span></div>
+              <h3 class="tl-title">Second child</h3>
+              <p class="tl-desc mt-4">Full FCA coverage by this point. Business ops layer should not require founder involvement in day-to-day — build this before 2031.</p>
             </div>
           </div>
 
-          <div class="tl-item future">
+          <div class="tl-item anim-up">
+            <div class="tl-dot future"></div>
             <div class="tl-card">
-              <div class="tl-year">2035–37 · Age 34–36</div>
-              <span class="tl-badge badge-amaea">Amaea</span>
-              <div class="tl-title">Cross-sector or international expansion</div>
-              <div class="tl-desc">Legal sector, EU/international regulatory markets. By this point Amaea is the dominant AI compliance tool for UK FCA-regulated firms — the expansion is a proven playbook applied to new sectors.</div>
+              <p class="tl-year future">2035–37 &nbsp;·&nbsp; Age 34–36</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-green">Amaea</span></div>
+              <h3 class="tl-title future">Cross-sector or international expansion</h3>
+              <p class="tl-desc mt-4">Legal sector, EU/international regulatory markets. Amaea is the dominant AI compliance tool for UK FCA-regulated firms — expansion is a proven playbook applied to new sectors.</p>
             </div>
           </div>
 
-          <div class="tl-item future">
+          <div class="tl-item anim-up">
+            <div class="tl-dot future"></div>
             <div class="tl-card">
-              <div class="tl-year">~2040 · Age ~39</div>
-              <span class="tl-badge badge-exit">Exit</span>
-              <div class="tl-title">Exit and retire as founder</div>
-              <div class="tl-desc">Strategic sale or partial exit. Retain equity and ongoing dividends. Advisory role. Exit groundwork — clean financials, documented systems, auditable revenue — starts 3–5 years before this point.</div>
+              <p class="tl-year future">~2040 &nbsp;·&nbsp; Age ~39</p>
+              <div style="margin-bottom:8px;"><span class="tag tag-blue">Exit</span></div>
+              <h3 class="tl-title future">Exit and retire as founder</h3>
+              <p class="tl-desc mt-4">Strategic sale or partial exit. Retain equity and ongoing dividends. Exit groundwork starts 3–5 years before this point.</p>
             </div>
           </div>
 
         </div>
-      </div>
 
-      <div class="col-lg-4">
-        <div style="position:sticky;top:80px;">
+        <!-- Sidebar -->
+        <div style="position:sticky;top:72px;" class="anim-up anim-up-2">
 
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
-            <div class="section-label" style="margin-bottom:12px;">Key dates</div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.82rem;"><span style="color:var(--muted);">Lucent exit</span><span style="color:var(--text);font-weight:600;">Sept 2028</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.82rem;"><span style="color:var(--muted);">Amaea launch</span><span style="color:#5fb95f;font-weight:600;">Sept 2028</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.82rem;"><span style="color:var(--muted);">Marry Milan</span><span style="color:#c9748a;font-weight:600;">~2029–2030</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.82rem;"><span style="color:var(--muted);">First child</span><span style="color:#c9748a;font-weight:600;">2031–32</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.82rem;"><span style="color:var(--muted);">Second child</span><span style="color:#c9748a;font-weight:600;">2033–34</span></div>
-            <div style="display:flex;justify-content:space-between;padding:8px 0;font-size:0.82rem;"><span style="color:var(--muted);">Exit target</span><span style="color:#7a8abf;font-weight:600;">~2040</span></div>
+          <div class="sidebar-card mb-3">
+            <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:12px;">Key dates</p>
+            <div class="sidebar-row"><span class="muted">Lucent exit</span><span style="font-weight:600;">Sept 2028</span></div>
+            <div class="sidebar-row"><span class="muted">Amaea launch</span><span style="color:#5fb95f;font-weight:600;">Sept 2028</span></div>
+            <div class="sidebar-row"><span class="muted">Marry Milan</span><span style="color:#c9748a;font-weight:600;">~2029–2030</span></div>
+            <div class="sidebar-row"><span class="muted">First child</span><span style="color:#c9748a;font-weight:600;">2031–32</span></div>
+            <div class="sidebar-row"><span class="muted">Second child</span><span style="color:#c9748a;font-weight:600;">2033–34</span></div>
+            <div class="sidebar-row"><span class="muted">Exit target</span><span style="color:#7a8abf;font-weight:600;">~2040</span></div>
           </div>
 
-          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:16px;">
-            <div class="section-label" style="margin-bottom:12px;">Next milestone</div>
-            <div style="font-size:0.88rem;color:var(--gold);font-weight:600;margin-bottom:6px;">Intelliflo Conference</div>
-            <div style="font-size:0.82rem;color:var(--muted);line-height:1.6;">June/July 2026 — attending with just your line manager. The most time-sensitive opportunity right now. Prepare who you want to meet and have your 60-second Amaea description ready.</div>
+          <div class="alert-card mb-3">
+            <p class="alert-label">🔥 Most urgent</p>
+            <p style="font-size:0.85rem;font-weight:600;color:var(--gold-light);margin-bottom:6px;">Intelliflo Conference</p>
+            <p>June/July 2026 — attending with just your line manager. Prepare who you want to meet and have your 60-second Amaea description ready.</p>
           </div>
 
-          <div style="background:var(--gold-dark);border:1px solid var(--gold);border-radius:12px;padding:20px;">
-            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:8px;">The window to watch</div>
-            <div style="font-size:0.83rem;color:#c9b870;line-height:1.6;">2031–2034 is where first child, second child, and FCA expansion all overlap. Build a strong ops layer and second-in-command <em>before</em> 2031. Not optional — it's what makes everything else survivable.</div>
+          <div class="sidebar-card" style="border-color:rgba(201,116,138,0.2);background:rgba(201,116,138,0.05);">
+            <p style="font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#c9748a;margin-bottom:8px;">The window to watch</p>
+            <p style="font-size:0.82rem;color:rgba(201,116,138,0.8);line-height:1.6;">2031–2034: first child, second child, and FCA expansion all overlap. Build a strong ops layer before 2031. Not optional — it's what makes everything else survivable.</p>
           </div>
 
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="container">
-    <p><a href="index.html">← Personal Dashboard</a> &nbsp;·&nbsp; <a href="ceo-development.html">CEO Development</a></p>
-  </div>
-</footer>
-<script src="animations.js"></script>
+  <footer>
+    <div class="container text-center">
+      <p><a href="index.html">← Dashboard</a> &nbsp;·&nbsp; <a href="ceo-development.html">CEO Development</a></p>
+    </div>
+  </footer>
+
+</div>
+<script src="app.js"></script>
 </body>
 </html>
