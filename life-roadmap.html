@@ -7,6 +7,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗺️</text></svg>">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <script>(function(){var t=localStorage.getItem('hasna-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)})();</script>
   <style>
     .tl-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; transition: border-color 0.25s var(--ease), transform 0.25s var(--ease); }
     .tl-card:hover { border-color: var(--border-2); transform: translateX(4px); }
@@ -34,7 +35,10 @@
       <a href="gym.html">Gym</a>
       <a href="cofounder.html">Co-founder</a>
     </div>
-    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle theme"><span class="t-dark">☀</span><span class="t-light">☾</span></button>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 
   <section class="hero" style="min-height:40vh;">

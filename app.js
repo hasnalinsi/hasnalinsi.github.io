@@ -1,4 +1,11 @@
-// Scroll-triggered animations
+// ── Theme init (runs before paint) ───────────────────────────────
+(function () {
+  var saved = localStorage.getItem('hasna-theme');
+  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+})();
+
+// ── Scroll-triggered animations ──────────────────────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => {
     if (el.isIntersecting) {
@@ -12,7 +19,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.anim-up, .anim-scale').forEach(el => observer.observe(el));
 
-// Animate progress bars on page load (above-fold content)
+// Animate above-fold progress bars on load
 setTimeout(() => {
   document.querySelectorAll('.progress-fill').forEach(bar => {
     const target = bar.getAttribute('data-width');
@@ -20,17 +27,26 @@ setTimeout(() => {
   });
 }, 200);
 
-// Navbar scroll effect
+// ── Navbar scroll class ───────────────────────────────────────────
 const nav = document.querySelector('.nav');
 if (nav) {
   window.addEventListener('scroll', () => {
-    nav.style.background = window.scrollY > 20
-      ? 'rgba(8,7,5,0.9)'
-      : 'rgba(8,7,5,0.72)';
+    nav.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 }
 
-// Smooth number counters
+// ── Theme toggle ──────────────────────────────────────────────────
+const themeToggle = document.querySelector('.theme-toggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('hasna-theme', next);
+  });
+}
+
+// ── Smooth number counters ────────────────────────────────────────
 function animateCounter(el) {
   const target = parseFloat(el.dataset.count);
   if (!target || isNaN(target)) return;
@@ -58,7 +74,7 @@ const counterObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-// Persistent checkboxes (localStorage)
+// ── Persistent checkboxes (localStorage) ─────────────────────────
 function initCheckboxes() {
   document.querySelectorAll('.check-box[data-key]').forEach(box => {
     const key = 'ceo-check-' + box.dataset.key;
@@ -88,7 +104,7 @@ function initCheckboxes() {
 }
 initCheckboxes();
 
-// Mobile hamburger menu
+// ── Mobile hamburger menu ─────────────────────────────────────────
 const burger = document.querySelector('.nav-burger');
 const navLinks = document.querySelector('.nav-links');
 if (burger && navLinks) {
