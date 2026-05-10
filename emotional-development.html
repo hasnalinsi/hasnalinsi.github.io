@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Emotional Development, Hasna</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --gold: #d4a843; --gold-dark: #2a1f08; --bg: #0a0805; --surface: #141008; --border: #2a2010; --text: #f5ead0; --muted: #8a7a5a; --dim: #3d3020; --rose: #c9748a; --rose-dark: #2a1520; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); }
+    .navbar { background-color: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 0; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 36px; height: 36px; border-radius: 9px; background: linear-gradient(135deg, #d4a843, #f0c870); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.88rem; color: #0a0805; }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; padding: 6px 12px; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); background: var(--gold-dark); }
+    .hero { background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%); padding: 72px 0 52px; border-bottom: 1px solid var(--border); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { color: var(--gold); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 10px; }
+    .hero p { color: var(--muted); font-size: 0.95rem; max-width: 560px; margin-top: 10px; line-height: 1.7; }
+    section { padding: 52px 0; }
+    .alt-bg { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-label { color: var(--gold); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+    .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; }
+    .area-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; height: 100%; }
+    .area-icon { font-size: 1.6rem; margin-bottom: 14px; }
+    .area-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .area-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .progress-bg { background: var(--dim); border-radius: 4px; height: 5px; }
+    .progress-fill { height: 5px; border-radius: 4px; background: linear-gradient(to right, var(--gold-dark), var(--gold)); }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); margin-bottom: 5px; }
+    .strength-item { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--dim); font-size: 0.83rem; }
+    .strength-item:last-child { border-bottom: none; }
+    .strength-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+    .strength-text { color: var(--muted); line-height: 1.5; }
+    .strength-text strong { color: var(--text); }
+    .journal-prompt { background: var(--gold-dark); border: 1px solid var(--gold); border-radius: 10px; padding: 16px 20px; margin-bottom: 12px; }
+    .journal-prompt p { color: #c9b870; font-size: 0.85rem; line-height: 1.6; margin: 0; font-style: italic; }
+    footer { background: var(--surface); border-top: 1px solid var(--border); padding: 28px 0; text-align: center; }
+    footer p { color: var(--dim); font-size: 0.82rem; }
+    footer a { color: var(--gold); text-decoration: none; }
+    @media (max-width: 768px) { h1 { font-size: 1.9rem; } .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="nav-logo-mark">H</div></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="life-roadmap.html">Roadmap</a>
+      <a href="emotional-development.html" class="active">Emotional</a>
+      <a href="ceo-development.html">CEO</a>
+      <a href="gym.html">Gym</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <div class="eyebrow">Inner work</div>
+    <h1>Emotional Development</h1>
+    <p>The internal foundations that make everything else possible. Resilience, clarity, boundaries, and the emotional intelligence to lead a business and a life you designed.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-label">Core areas</div>
+    <div class="section-title">What you're building</div>
+    <div class="row g-4">
+
+      <div class="col-lg-4 col-md-6">
+        <div class="area-card">
+          <div class="area-icon">🛡️</div>
+          <h3>Resilience</h3>
+          <p>You have already proven this. Standing firm through family opposition, staying in a difficult workplace because you know what it's building — that's not just endurance, it's strategic resilience. The goal now is to make it less costly over time.</p>
+          <div class="progress-label"><span>Current</span><span>Strong foundation</span></div>
+          <div class="progress-bg"><div class="progress-fill" style="width:70%;"></div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="area-card">
+          <div class="area-icon">🧭</div>
+          <h3>Emotional regulation under pressure</h3>
+          <p>A toxic workplace is one of the hardest environments to regulate in. The skill of staying centred when things are emotionally draining — without either shutting down or reacting — is exactly what a CEO needs. You're building this right now.</p>
+          <div class="progress-label"><span>Current</span><span>Building</span></div>
+          <div class="progress-bg"><div class="progress-fill" style="width:45%;"></div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="area-card">
+          <div class="area-icon">🤝</div>
+          <h3>Relationship boundaries</h3>
+          <p>Building a business with your partner is one of the most powerful things you can do — and one of the most complex. Keeping your CEO/co-founder dynamic separate from your personal relationship requires deliberate structure. Not a one-time conversation — an ongoing practice.</p>
+          <div class="progress-label"><span>Current</span><span>Active focus</span></div>
+          <div class="progress-bg"><div class="progress-fill" style="width:40%;"></div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="area-card">
+          <div class="area-icon">🗣️</div>
+          <h3>Assertive communication</h3>
+          <p>As CEO you'll need to deliver hard messages — to clients who aren't renewing, to employees who aren't performing, to investors who are pushing back. Assertive (not aggressive, not passive) communication is a learnable skill. FP Advance and the Intelliflo conference are live practice grounds.</p>
+          <div class="progress-label"><span>Current</span><span>Demonstrated at FP Advance</span></div>
+          <div class="progress-bg"><div class="progress-fill" style="width:60%;"></div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="area-card">
+          <div class="area-icon">🌊</div>
+          <h3>Managing ambiguity</h3>
+          <p>Early-stage startup life is almost entirely ambiguous — no clear path, no guaranteed outcomes, constant pivoting. The emotional ability to act decisively without certainty is what separates founders who survive year two from those who don't.</p>
+          <div class="progress-label"><span>Current</span><span>Developing</span></div>
+          <div class="progress-bg"><div class="progress-fill" style="width:35%;"></div></div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="area-card">
+          <div class="area-icon">💛</div>
+          <h3>Self-compassion without complacency</h3>
+          <p>High standards and self-compassion aren't opposites — the best performers have both. Staying at Lucent when it's emotionally draining requires forgiving yourself on the hard days without using it as a reason to lower the bar.</p>
+          <div class="progress-label"><span>Current</span><span>Building awareness</span></div>
+          <div class="progress-bg"><div class="progress-fill" style="width:40%;"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <div class="section-label">Foundations</div>
+        <div class="section-title">Strengths already built</div>
+        <div class="strength-item"><div class="strength-dot" style="background:var(--gold);"></div><div class="strength-text"><strong>Proven under real pressure</strong> — the family situation tested your resolve at the deepest level. You chose your values over approval. That's character that most people never develop.</div></div>
+        <div class="strength-item"><div class="strength-dot" style="background:var(--gold);"></div><div class="strength-text"><strong>Long-game thinking</strong> — staying at Lucent despite hating it, because you understand what it's building, is emotional maturity most 24-year-olds don't have.</div></div>
+        <div class="strength-item"><div class="strength-dot" style="background:var(--gold);"></div><div class="strength-text"><strong>Partnership stability</strong> — you and Milan have faced serious external pressure and came out stronger. That's the most important predictor of whether a co-founder pairing survives building a company.</div></div>
+        <div class="strength-item"><div class="strength-dot" style="background:var(--gold);"></div><div class="strength-text"><strong>Comfort in high-stakes rooms</strong> — a 2-minute pitch that produced 6 job offers isn't luck. That's self-possession under pressure.</div></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="section-label">Reflection</div>
+        <div class="section-title">Journal prompts</div>
+        <div class="journal-prompt"><p>What did the family opposition teach me about what I actually value — and what I'm willing to fight for?</p></div>
+        <div class="journal-prompt"><p>When Lucent is hardest, what specifically drains me most? Is it the people, the work, or something I can change?</p></div>
+        <div class="journal-prompt"><p>What does the version of me who has already launched Amaea look like — how does she carry herself, what decisions does she make easily?</p></div>
+        <div class="journal-prompt"><p>Where do I notice the boundary between Hasna-the-CEO and Hasna-the-partner getting blurry? What would help?</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><a href="index.html">← Personal Dashboard</a> &nbsp;·&nbsp; <a href="ceo-development.html">CEO Development</a></p>
+  </div>
+</footer>
+<script src="animations.js"></script>
+</body>
+</html>
