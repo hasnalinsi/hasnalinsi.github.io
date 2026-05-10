@@ -1,17 +1,17 @@
 /* ─── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --gold:        #c9a84c;
-  --gold-light:  #e8c97a;
-  --gold-subtle: rgba(201,168,76,0.12);
-  --gold-border: rgba(201,168,76,0.25);
-  --bg:          #080705;
+  --gold:        #4292c6;
+  --gold-light:  #c6dbef;
+  --gold-subtle: rgba(66,146,198,0.1);
+  --gold-border: rgba(66,146,198,0.25);
+  --bg:          #06080f;
   --surface:     rgba(255,255,255,0.04);
   --surface-2:   rgba(255,255,255,0.07);
   --border:      rgba(255,255,255,0.08);
-  --border-2:    rgba(255,255,255,0.12);
-  --text:        #f0e6cc;
-  --text-2:      #a89870;
-  --text-3:      #5a4e36;
+  --border-2:    rgba(255,255,255,0.14);
+  --text:        #ffffff;
+  --text-2:      #9ecae1;
+  --text-3:      #3a5a72;
   --white:       #ffffff;
   --radius-sm:   10px;
   --radius:      16px;
@@ -56,10 +56,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-logo {
   width: 32px; height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #c9a84c 0%, #e8c97a 100%);
+  background: linear-gradient(135deg, #4292c6 0%, #c6dbef 100%);
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 0.82rem;
-  color: #080705;
+  color: #06080f;
   flex-shrink: 0;
 }
 .nav-links {
@@ -131,7 +131,7 @@ section { padding: 80px 0; }
   top: -200px; left: 50%;
   transform: translateX(-50%);
   width: 800px; height: 600px;
-  background: radial-gradient(ellipse at center, rgba(201,168,76,0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(66,146,198,0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 .hero-label {
@@ -143,7 +143,7 @@ section { padding: 80px 0; }
   margin-bottom: 20px;
 }
 .hero-title { font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px; }
-.hero-title .accent { background: linear-gradient(135deg, var(--gold), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-title .accent { background: linear-gradient(135deg, #6baed6, #c6dbef); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .hero-sub { font-size: 1.05rem; color: var(--text-2); max-width: 520px; line-height: 1.7; }
 
 /* ─── Cards ──────────────────────────────────────────────────── */
@@ -179,7 +179,7 @@ section { padding: 80px 0; }
 
 /* ─── Progress bar ───────────────────────────────────────────── */
 .progress-track { background: var(--border); border-radius: 4px; height: 4px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, rgba(201,168,76,0.5), var(--gold)); transition: width 1s var(--ease) 0.3s; width: 0; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #9ecae1, #4292c6); transition: width 1s var(--ease) 0.3s; width: 0; }
 .progress-fill.animated { }
 
 /* ─── Check items ────────────────────────────────────────────── */
