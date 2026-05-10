@@ -72,6 +72,14 @@ const counterObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.5 });
 
+// Compute years to Amaea launch (Sept 2028) and wire into counter
+(function () {
+  const el = document.getElementById('yearsToLaunch');
+  if (!el) return;
+  const years = (new Date('2028-09-01') - new Date()) / (1000 * 60 * 60 * 24 * 365.25);
+  el.dataset.count = years.toFixed(1);
+})();
+
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
 // ── Persistent checkboxes (localStorage) ─────────────────────────
