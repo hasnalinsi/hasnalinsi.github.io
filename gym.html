@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
@@ -29,6 +29,65 @@
     .day-name { font-size: 1.05rem; font-weight: 700; }
     .day-block:not(.rest):hover { border-color: var(--border-2); }
     .dash { color: var(--text-3); }
+    /* Exercise row */
+    .ex-cell { display: flex; align-items: center; gap: 8px; }
+    .ex-name { flex: 1; }
+    .ex-check {
+      width: 18px; height: 18px; border-radius: 50%;
+      border: 1.5px solid var(--border-2); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.2s var(--ease);
+    }
+    .ex-check:hover { border-color: var(--gold); }
+    .ex-check.done { background: #5fb95f; border-color: #5fb95f; }
+    .ex-check.done::after { content: '✓'; font-size: 0.58rem; color: white; font-weight: 700; line-height: 1; }
+    tr.done-row .ex-name { text-decoration: line-through; color: var(--text-3); }
+    tr.done-row td:not(:first-child) { color: var(--text-3); opacity: 0.5; }
+    .ex-info {
+      width: 20px; height: 20px; border-radius: 50%;
+      border: 1px solid var(--border-2); color: var(--text-3);
+      font-size: 0.7rem; font-style: italic; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; flex-shrink: 0; transition: all 0.2s var(--ease);
+      line-height: 1;
+    }
+    .ex-info:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-subtle); }
+    /* Modal */
+    .ex-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 200; opacity: 0; pointer-events: none;
+      transition: opacity 0.25s var(--ease);
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .ex-overlay.open { opacity: 1; pointer-events: all; }
+    .ex-modal {
+      background: var(--surface);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding: 28px 28px 40px;
+      width: min(520px, 100%);
+      transform: translateY(24px);
+      transition: transform 0.3s var(--ease-spring);
+      border: 1px solid var(--border);
+      border-bottom: none;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .ex-overlay.open .ex-modal { transform: translateY(0); }
+    .ex-modal-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 20px; }
+    .ex-modal-muscles { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 4px; }
+    .ex-modal-title { font-size: 1.2rem; font-weight: 700; }
+    .ex-modal-close {
+      width: 28px; height: 28px; border-radius: 8px; background: var(--surface-2);
+      border: 1px solid var(--border); color: var(--text-2); font-size: 0.8rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; flex-shrink: 0; transition: background 0.2s var(--ease);
+    }
+    .ex-modal-close:hover { background: var(--border); }
+    .ex-modal-steps { list-style: none; }
+    .ex-modal-steps li { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text-2); line-height: 1.6; align-items: flex-start; }
+    .ex-modal-steps li:last-child { border-bottom: none; }
+    .ex-step-num { width: 22px; height: 22px; border-radius: 6px; background: var(--gold-subtle); color: var(--gold); font-size: 0.72rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-border); }
     @media (max-width: 640px) { .week-grid { grid-template-columns: repeat(4, 1fr); } }
   </style>
 </head>
@@ -55,7 +114,7 @@
     <div class="container">
       <p class="hero-label anim-up">Fitness</p>
       <h1 class="hero-title anim-up anim-up-1" style="font-size:clamp(2.4rem,5vw,3.8rem);">Gym Programme</h1>
-      <p class="hero-sub anim-up anim-up-2">5 active days, arms, back, cardio, legs, and padel. Updated as weights progress.</p>
+      <p class="hero-sub anim-up anim-up-2">5 active days, arms, back, cardio, legs, and padel. Tick each exercise as you go. Tap <strong style="color:var(--gold);">i</strong> to see how to do it.</p>
     </div>
   </section>
 
@@ -77,38 +136,40 @@
         <div class="week-cell padel"><div class="day-lbl">Sun</div><div class="day-icon">🎾</div><div class="day-type">Padel</div></div>
       </div>
 
-      <!-- Days -->
+      <!-- Monday -->
       <div class="day-block gym anim-up">
         <div class="day-header">
           <div class="day-name">Monday</div>
-          <span class="tag tag-gold">Arms & Shoulders</span>
+          <span class="tag tag-gold">Arms &amp; Shoulders</span>
         </div>
         <table class="clean-table">
           <thead><tr><th style="width:45%;">Exercise</th><th style="width:18%;text-align:center;">Sets</th><th style="width:18%;text-align:center;">Reps</th><th style="width:19%;text-align:center;">Weight</th></tr></thead>
           <tbody>
-            <tr><td>Bicep Curls</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">4kg</td></tr>
-            <tr><td>Hammer Curls</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">4kg</td></tr>
-            <tr><td>Tricep Pushdown</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">15kg</td></tr>
+            <tr data-key="mon-1"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Bicep Curls</span><button class="ex-info" data-ex="bicep-curls" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">4kg</td></tr>
+            <tr data-key="mon-2"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Hammer Curls</span><button class="ex-info" data-ex="hammer-curls" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">4kg</td></tr>
+            <tr data-key="mon-3"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Tricep Pushdown</span><button class="ex-info" data-ex="tricep-pushdown" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">15kg</td></tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Tuesday -->
       <div class="day-block gym anim-up">
         <div class="day-header">
           <div class="day-name">Tuesday</div>
-          <span class="tag tag-gold">Back & Shoulders</span>
+          <span class="tag tag-gold">Back &amp; Shoulders</span>
         </div>
         <table class="clean-table">
           <thead><tr><th style="width:45%;">Exercise</th><th style="width:18%;text-align:center;">Sets</th><th style="width:18%;text-align:center;">Reps</th><th style="width:19%;text-align:center;">Weight</th></tr></thead>
           <tbody>
-            <tr><td>Lat Pulldown</td><td style="text-align:center;">4</td><td style="text-align:center;">10</td><td style="text-align:center;">20kg</td></tr>
-            <tr><td>Seated Cable Row</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr><td>Lateral Raise</td><td style="text-align:center;">2</td><td style="text-align:center;">15</td><td style="text-align:center;">2kg</td></tr>
-            <tr><td>Shoulder Press</td><td style="text-align:center;">4</td><td style="text-align:center;">6</td><td style="text-align:center;">5kg</td></tr>
+            <tr data-key="tue-1"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Lat Pulldown</span><button class="ex-info" data-ex="lat-pulldown" aria-label="How to">i</button></div></td><td style="text-align:center;">4</td><td style="text-align:center;">10</td><td style="text-align:center;">20kg</td></tr>
+            <tr data-key="tue-2"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Seated Cable Row</span><button class="ex-info" data-ex="seated-cable-row" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="tue-3"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Lateral Raise</span><button class="ex-info" data-ex="lateral-raise" aria-label="How to">i</button></div></td><td style="text-align:center;">2</td><td style="text-align:center;">15</td><td style="text-align:center;">2kg</td></tr>
+            <tr data-key="tue-4"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Shoulder Press</span><button class="ex-info" data-ex="shoulder-press" aria-label="How to">i</button></div></td><td style="text-align:center;">4</td><td style="text-align:center;">6</td><td style="text-align:center;">5kg</td></tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Wednesday -->
       <div class="day-block cardio anim-up">
         <div class="day-header">
           <div class="day-name">Wednesday</div>
@@ -117,6 +178,7 @@
         <p style="font-size:0.88rem;color:var(--text-2);">Choose one: <strong style="color:var(--text);">Swimming</strong> &nbsp;·&nbsp; <strong style="color:var(--text);">Padel</strong> &nbsp;·&nbsp; <strong style="color:var(--text);">Treadmill</strong></p>
       </div>
 
+      <!-- Thursday -->
       <div class="day-block rest anim-up">
         <div class="day-header">
           <div class="day-name">Thursday</div>
@@ -125,6 +187,7 @@
         <p style="font-size:0.85rem;color:var(--text-2);">Full rest. Focus on hydration, nutrition, and recovery.</p>
       </div>
 
+      <!-- Friday -->
       <div class="day-block gym anim-up">
         <div class="day-header">
           <div class="day-name">Friday</div>
@@ -133,17 +196,18 @@
         <table class="clean-table">
           <thead><tr><th style="width:45%;">Exercise</th><th style="width:18%;text-align:center;">Sets</th><th style="width:18%;text-align:center;">Reps</th><th style="width:19%;text-align:center;">Weight</th></tr></thead>
           <tbody>
-            <tr><td>Leg Press</td><td style="text-align:center;">4</td><td style="text-align:center;">8</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr><td>Leg Curls</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr><td>Leg Extensions</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr><td>Hip Adductors</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr><td>Hip Abductors</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr><td>Calf Raises</td><td style="text-align:center;">3</td><td style="text-align:center;">15</td><td style="text-align:center;">8kg</td></tr>
-            <tr><td>Hip Thrusts</td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="fri-1"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Leg Press</span><button class="ex-info" data-ex="leg-press" aria-label="How to">i</button></div></td><td style="text-align:center;">4</td><td style="text-align:center;">8</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="fri-2"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Leg Curls</span><button class="ex-info" data-ex="leg-curls" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="fri-3"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Leg Extensions</span><button class="ex-info" data-ex="leg-extensions" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="fri-4"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Hip Adductors</span><button class="ex-info" data-ex="hip-adductors" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="fri-5"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Hip Abductors</span><button class="ex-info" data-ex="hip-abductors" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="fri-6"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Calf Raises</span><button class="ex-info" data-ex="calf-raises" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">15</td><td style="text-align:center;">8kg</td></tr>
+            <tr data-key="fri-7"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Hip Thrusts</span><button class="ex-info" data-ex="hip-thrusts" aria-label="How to">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Saturday -->
       <div class="day-block rest anim-up">
         <div class="day-header">
           <div class="day-name">Saturday</div>
@@ -152,6 +216,7 @@
         <p style="font-size:0.85rem;color:var(--text-2);">Full rest.</p>
       </div>
 
+      <!-- Sunday -->
       <div class="day-block padel anim-up">
         <div class="day-header">
           <div class="day-name">Sunday</div>
@@ -163,6 +228,20 @@
     </div>
   </section>
 
+  <!-- Exercise info modal -->
+  <div class="ex-overlay" id="exOverlay">
+    <div class="ex-modal" id="exModal">
+      <div class="ex-modal-header">
+        <div>
+          <p class="ex-modal-muscles" id="exMuscles"></p>
+          <h3 class="ex-modal-title" id="exTitle"></h3>
+        </div>
+        <button class="ex-modal-close" id="exClose" aria-label="Close">✕</button>
+      </div>
+      <ol class="ex-modal-steps" id="exSteps"></ol>
+    </div>
+  </div>
+
   <footer>
     <div class="container text-center">
       <p><a href="index.html">← Dashboard</a></p>
@@ -170,6 +249,223 @@
   </footer>
 
 </div>
+
+<script>
+const EXERCISES = {
+  'bicep-curls': {
+    name: 'Bicep Curls',
+    muscles: 'Biceps, Forearms',
+    steps: [
+      'Stand holding dumbbells at your sides, palms facing forward, elbows tucked in.',
+      'Curl both weights toward your shoulders, keeping your elbows completely stationary.',
+      'Squeeze the biceps hard at the top. No swinging or rocking.',
+      'Lower slowly back to the start, resisting the weight on the way down.'
+    ]
+  },
+  'hammer-curls': {
+    name: 'Hammer Curls',
+    muscles: 'Brachialis, Biceps, Forearms',
+    steps: [
+      'Stand holding dumbbells at your sides with palms facing each other (neutral grip).',
+      'Curl both weights toward your shoulders, keeping the neutral grip throughout.',
+      'Hold briefly at the top. No swinging.',
+      'Lower slowly. The neutral grip targets the brachialis and outer bicep more than standard curls.'
+    ]
+  },
+  'tricep-pushdown': {
+    name: 'Tricep Pushdown',
+    muscles: 'Triceps',
+    steps: [
+      'Stand at the cable machine and grip the bar at chest height, elbows tucked at your sides.',
+      'Push the bar down until your arms are fully extended, keeping elbows fixed throughout.',
+      'Squeeze the triceps hard at the bottom for one second.',
+      'Return slowly to the start. Do not let your elbows flare out or lift.'
+    ]
+  },
+  'lat-pulldown': {
+    name: 'Lat Pulldown',
+    muscles: 'Lats, Biceps, Rear delts',
+    steps: [
+      'Grip the bar slightly wider than shoulder-width, palms facing forward.',
+      'Lean back slightly, then pull the bar toward your upper chest, leading with your elbows.',
+      'Squeeze your shoulder blades together at the bottom of the movement.',
+      'Extend your arms fully on the way up to feel the full stretch through the lats.'
+    ]
+  },
+  'seated-cable-row': {
+    name: 'Seated Cable Row',
+    muscles: 'Mid-back, Lats, Biceps',
+    steps: [
+      'Sit upright with feet on the platform, slight bend in the knees, torso tall.',
+      'Pull the handle toward your lower abdomen, driving your elbows back as far as possible.',
+      'Squeeze your shoulder blades together at the end of the movement.',
+      'Extend forward fully between reps. Keep your torso still, no rocking.'
+    ]
+  },
+  'lateral-raise': {
+    name: 'Lateral Raise',
+    muscles: 'Medial deltoids',
+    steps: [
+      'Stand holding light dumbbells at your sides, a slight bend in the elbows.',
+      'Raise both arms out to the sides until they are level with your shoulders.',
+      'Hold briefly at the top. Do not shrug your shoulders upward.',
+      'Lower slowly. Control is everything here. Use lighter weight than you think you need.'
+    ]
+  },
+  'shoulder-press': {
+    name: 'Shoulder Press',
+    muscles: 'Front and medial delts, Triceps',
+    steps: [
+      'Hold dumbbells at shoulder height, palms facing forward, elbows at 90 degrees.',
+      'Press directly overhead until your arms are fully extended.',
+      'Lower back to shoulder height with control.',
+      'Sit upright or stand. Keep your core tight to protect your lower back.'
+    ]
+  },
+  'leg-press': {
+    name: 'Leg Press',
+    muscles: 'Quads, Glutes, Hamstrings',
+    steps: [
+      'Sit in the machine with feet shoulder-width apart on the platform.',
+      'Lower the weight by bending your knees to roughly 90 degrees, or as deep as is comfortable.',
+      'Press through your heels to extend your legs. Do not fully lock your knees at the top.',
+      'Keep your lower back pressed flat against the seat throughout the movement.'
+    ]
+  },
+  'leg-curls': {
+    name: 'Leg Curls',
+    muscles: 'Hamstrings',
+    steps: [
+      'Lie face down on the machine with the pad positioned just above your heels.',
+      'Curl your legs up toward your glutes as far as the machine allows.',
+      'Hold briefly at the top. Keep your hips pressed against the bench.',
+      'Lower slowly, fully extending your legs before starting the next rep.'
+    ]
+  },
+  'leg-extensions': {
+    name: 'Leg Extensions',
+    muscles: 'Quadriceps',
+    steps: [
+      'Sit in the machine with the pad across the front of your ankles.',
+      'Extend your legs until they are fully straight.',
+      'Hold for one second at the top. Feel the quad contraction.',
+      'Lower slowly, resisting the weight on the way down. Do not let it drop.'
+    ]
+  },
+  'hip-adductors': {
+    name: 'Hip Adductors',
+    muscles: 'Inner thighs',
+    steps: [
+      'Sit in the machine with the pads placed against your inner thighs.',
+      'Squeeze your thighs together against the resistance as far as the machine allows.',
+      'Hold briefly at the end of the movement.',
+      'Return slowly. Sit tall throughout, do not round your lower back.'
+    ]
+  },
+  'hip-abductors': {
+    name: 'Hip Abductors',
+    muscles: 'Outer thighs, Glutes',
+    steps: [
+      'Sit in the machine with the pads placed against your outer thighs.',
+      'Push your legs apart against the resistance as far as possible.',
+      'Hold briefly at full range.',
+      'Return slowly under control. Sit tall, engage your core.'
+    ]
+  },
+  'calf-raises': {
+    name: 'Calf Raises',
+    muscles: 'Gastrocnemius, Soleus',
+    steps: [
+      'Stand on the edge of a platform or step, heels hanging off the edge.',
+      'Rise up onto your toes as high as possible.',
+      'Hold at the top for one second.',
+      'Lower your heels below the platform level for a full stretch before the next rep.'
+    ]
+  },
+  'hip-thrusts': {
+    name: 'Hip Thrusts',
+    muscles: 'Glutes, Hamstrings',
+    steps: [
+      'Sit with your upper back against a bench, barbell across your hips (use a pad).',
+      'Plant your feet flat on the floor, shoulder-width apart.',
+      'Drive your hips upward until your body forms a straight line from knees to shoulders.',
+      'Squeeze your glutes hard at the top. Keep your chin tucked. Lower slowly.'
+    ]
+  }
+};
+
+// ── Gym checkboxes (reset daily) ──────────────────────────────────
+const today = new Date().toISOString().split('T')[0];
+
+function gymKey(k) { return 'gym-' + today + '-' + k; }
+
+document.querySelectorAll('tr[data-key]').forEach(row => {
+  const key = row.dataset.key;
+  const check = row.querySelector('.ex-check');
+  if (!check) return;
+
+  if (localStorage.getItem(gymKey(key)) === 'done') {
+    check.classList.add('done');
+    row.classList.add('done-row');
+  }
+
+  check.addEventListener('click', () => {
+    const isDone = check.classList.contains('done');
+    if (isDone) {
+      check.classList.remove('done');
+      row.classList.remove('done-row');
+      localStorage.removeItem(gymKey(key));
+    } else {
+      check.classList.add('done');
+      row.classList.add('done-row');
+      localStorage.setItem(gymKey(key), 'done');
+    }
+  });
+});
+
+// ── Exercise info modal ───────────────────────────────────────────
+const overlay = document.getElementById('exOverlay');
+const modal = document.getElementById('exModal');
+const exTitle = document.getElementById('exTitle');
+const exMuscles = document.getElementById('exMuscles');
+const exSteps = document.getElementById('exSteps');
+const exClose = document.getElementById('exClose');
+
+function openModal(exId) {
+  const ex = EXERCISES[exId];
+  if (!ex) return;
+  exTitle.textContent = ex.name;
+  exMuscles.textContent = ex.muscles;
+  exSteps.innerHTML = ex.steps.map((s, i) =>
+    `<li><span class="ex-step-num">${i + 1}</span><span>${s}</span></li>`
+  ).join('');
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.ex-info').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openModal(btn.dataset.ex);
+  });
+});
+
+exClose.addEventListener('click', closeModal);
+
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+
 <script src="app.js"></script>
 </body>
 </html>
