@@ -162,6 +162,7 @@
       <div class="week-grid anim-up">
         <div class="week-cell gym"><div class="day-lbl">Mon</div><div class="day-icon">💪</div><div class="day-type">Arms</div></div>
         <div class="week-cell gym"><div class="day-lbl">Tue</div><div class="day-icon">🏋️</div><div class="day-type">Back</div></div>
+
         <div class="week-cell cardio"><div class="day-lbl">Wed</div><div class="day-icon">🏊</div><div class="day-type">Cardio</div></div>
         <div class="week-cell"><div class="day-lbl">Thu</div><div class="day-icon">💤</div><div class="day-type">Rest</div></div>
         <div class="week-cell gym"><div class="day-lbl">Fri</div><div class="day-icon">🦵</div><div class="day-type">Legs</div></div>
@@ -178,20 +179,23 @@
             <tr data-key="mon-1"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Bicep Curls</span><button class="ex-info" data-ex="bicep-curls">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">4kg</td></tr>
             <tr data-key="mon-2"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Hammer Curls</span><button class="ex-info" data-ex="hammer-curls">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">4kg</td></tr>
             <tr data-key="mon-3"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Tricep Pushdown</span><button class="ex-info" data-ex="tricep-pushdown">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;">15kg</td></tr>
+            <tr data-key="mon-4"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Shoulder Press</span><button class="ex-info" data-ex="shoulder-press">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">10</td><td style="text-align:center;">5kg</td></tr>
+            <tr data-key="mon-5"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Lateral Raise</span><button class="ex-info" data-ex="lateral-raise">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">15</td><td style="text-align:center;">2kg</td></tr>
           </tbody>
         </table>
       </div>
 
       <!-- Tuesday -->
       <div class="day-block gym anim-up">
-        <div class="day-header"><div class="day-name">Tuesday</div><span class="tag tag-gold">Back &amp; Shoulders</span></div>
+        <div class="day-header"><div class="day-name">Tuesday</div><span class="tag tag-gold">Back &amp; Rear Delts</span></div>
         <table class="clean-table">
           <thead><tr><th style="width:45%;">Exercise</th><th style="width:18%;text-align:center;">Sets</th><th style="width:18%;text-align:center;">Reps</th><th style="width:19%;text-align:center;">Weight</th></tr></thead>
           <tbody>
             <tr data-key="tue-1"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Lat Pulldown</span><button class="ex-info" data-ex="lat-pulldown">i</button></div></td><td style="text-align:center;">4</td><td style="text-align:center;">10</td><td style="text-align:center;">20kg</td></tr>
             <tr data-key="tue-2"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Seated Cable Row</span><button class="ex-info" data-ex="seated-cable-row">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
-            <tr data-key="tue-3"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Lateral Raise</span><button class="ex-info" data-ex="lateral-raise">i</button></div></td><td style="text-align:center;">2</td><td style="text-align:center;">15</td><td style="text-align:center;">2kg</td></tr>
-            <tr data-key="tue-4"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Shoulder Press</span><button class="ex-info" data-ex="shoulder-press">i</button></div></td><td style="text-align:center;">4</td><td style="text-align:center;">6</td><td style="text-align:center;">5kg</td></tr>
+            <tr data-key="tue-3"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Face Pulls</span><button class="ex-info" data-ex="face-pulls">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">15</td><td style="text-align:center;" class="dash">—</td></tr>
+            <tr data-key="tue-4"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Rear Delt Fly</span><button class="ex-info" data-ex="rear-delt-fly">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">15</td><td style="text-align:center;">2kg</td></tr>
+            <tr data-key="tue-5"><td><div class="ex-cell"><div class="ex-check"></div><span class="ex-name">Reverse Cable Fly</span><button class="ex-info" data-ex="reverse-cable-fly">i</button></div></td><td style="text-align:center;">3</td><td style="text-align:center;">12</td><td style="text-align:center;" class="dash">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -348,7 +352,10 @@ const EXERCISES = {
   'hip-adductors': { name:'Hip Adductors', muscles:'Inner thighs', steps:['Sit in the machine, pads against your inner thighs.','Squeeze your thighs together as far as the machine allows.','Hold briefly at the end of the movement.','Return slowly. Sit tall, do not round your lower back.'] },
   'hip-abductors': { name:'Hip Abductors', muscles:'Outer thighs, Glutes', steps:['Sit in the machine, pads against your outer thighs.','Push your legs apart against the resistance as far as possible.','Hold briefly at full range.','Return slowly under control. Sit tall throughout.'] },
   'calf-raises': { name:'Calf Raises', muscles:'Gastrocnemius, Soleus', steps:['Stand on the edge of a step, heels hanging off.','Rise up onto your toes as high as possible.','Hold at the top for one second.','Lower heels below the platform level for a full stretch before the next rep.'] },
-  'hip-thrusts': { name:'Hip Thrusts', muscles:'Glutes, Hamstrings', steps:['Sit with upper back against a bench, barbell across hips (use a pad).','Plant feet flat on the floor, shoulder-width apart.','Drive hips upward until body forms a straight line from knees to shoulders.','Squeeze glutes hard at the top, chin tucked. Lower slowly.'] }
+  'hip-thrusts': { name:'Hip Thrusts', muscles:'Glutes, Hamstrings', steps:['Sit with upper back against a bench, barbell across hips (use a pad).','Plant feet flat on the floor, shoulder-width apart.','Drive hips upward until body forms a straight line from knees to shoulders.','Squeeze glutes hard at the top, chin tucked. Lower slowly.'] },
+  'face-pulls': { name:'Face Pulls', muscles:'Rear delts, Mid-back', steps:['Set a cable machine to face height with a rope attachment. Stand a step back.','Pull the rope toward your face, separating the ends as you pull. Elbows stay high and wide.','Squeeze your rear delts and external rotators at the end of the movement.','Return slowly, fully extending before the next rep. Keep your torso still.'] },
+  'rear-delt-fly': { name:'Rear Delt Fly', muscles:'Rear delts', steps:['Sit at the edge of a bench, hinge forward from the hips, back flat, chest near thighs.','Hold light dumbbells hanging below you, slight bend in elbows.','Raise both arms out to the sides in an arc until level with your shoulders.','Squeeze the rear delts at the top. Lower slowly. Use very light weight.'] },
+  'reverse-cable-fly': { name:'Reverse Cable Fly', muscles:'Rear delts, Mid-back', steps:['Stand between two cable machines set at face height, each hand holding the opposite cable.','Arms start crossed. Pull both hands out and back in a wide arc, keeping arms nearly straight.','Squeeze the rear delts and upper back at the end of the movement.','Return slowly with control to the crossed starting position.'] }
 };
 
 const MUSCLE_MAP = {
