@@ -315,5 +315,49 @@ footer a:hover { opacity: 0.75; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 768px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } section { padding: 56px 0; } }
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 56px 0; }
+  /* Timeline+sidebar: stack vertically */
+  .mob-tl-sidebar { grid-template-columns: 1fr !important; }
+  .mob-sidebar { position: static !important; }
+  /* 2-col grids → 1-col */
+  .mob-grid-strengths, .mob-grid-roles, .mob-grid-protocol,
+  .mob-grid-skills, .mob-grid-palette { grid-template-columns: 1fr !important; }
+  /* 3-col grids → 1-col */
+  .mob-grid-areas, .mob-grid-brand { grid-template-columns: 1fr !important; }
+  /* 4-col grids → 2-col */
+  .mob-grid-contacts, .mob-grid-steps,
+  .mob-grid-pillars { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 640px) {
+  /* Home cards: 2-col → 1-col */
+  .mob-grid-cards { grid-template-columns: 1fr !important; }
+  /* Journal prompts: 2-col → 1-col */
+  .mob-grid-journal { grid-template-columns: 1fr !important; }
+  /* Contacts: → 1-col */
+  .mob-grid-contacts { grid-template-columns: 1fr !important; }
+  /* Stats strip: 2×2 on phone */
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  /* Hero */
+  .hero { padding: 40px 0 32px; }
+  .hero-sub { font-size: 0.9rem; }
+  /* Section intro */
+  .section-intro { margin-bottom: 24px; }
+  /* Skill bars: allow name to shrink on small screens */
+  .skill-name { min-width: 0; font-size: 0.8rem; }
+  .skill-when { min-width: 36px; }
+  /* Checklist date: allow wrapping */
+  .check-meta { white-space: normal; }
+  /* Tables: exercise names can wrap */
+  .clean-table { font-size: 0.79rem; }
+  .clean-table td:first-child { white-space: normal; }
+  /* Cards and blocks: tighten padding */
+  .card { padding: 20px; }
+  .phase-block { padding: 18px 16px; }
+  .day-block { padding: 18px 16px; }
+}
+
 @media (max-width: 480px) { .hero-title { font-size: 2.4rem; } }
