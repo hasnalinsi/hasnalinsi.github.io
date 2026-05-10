@@ -116,24 +116,10 @@
     .ex-modal-steps li:last-child { border-bottom: none; }
     .ex-step-num { width: 22px; height: 22px; border-radius: 6px; background: var(--gold-subtle); color: var(--gold); font-size: 0.7rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--gold-border); margin-top: 1px; }
 
-    /* SVG muscle map */
-    .body-map { display: block; width: 100%; max-width: 220px; margin: 0 auto; }
-    .ms-body { fill: var(--border); }
-    .ms-base {
-      fill: rgba(66,146,198,0.13);
-      stroke: rgba(66,146,198,0.3);
-      stroke-width: 0.6;
-      transition: fill 0.3s ease, stroke 0.3s ease, filter 0.3s ease;
-    }
-    .ms-base.ms-active {
-      fill: #4292c6;
-      stroke: #6baed6;
-      filter: drop-shadow(0 0 5px rgba(66,146,198,0.55));
-    }
-    [data-theme="light"] .ms-base { fill: rgba(33,113,181,0.1); stroke: rgba(33,113,181,0.25); }
-    [data-theme="light"] .ms-base.ms-active { fill: #2171b5; stroke: #4292c6; filter: drop-shadow(0 0 4px rgba(33,113,181,0.45)); }
-    .body-label { font-size: 7px; fill: var(--text-3); font-family: system-ui, sans-serif; text-anchor: middle; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
-    .body-divider { stroke: var(--border); stroke-width: 0.5; }
+    /* Body highlighter containers */
+    .body-view-label { font-size: 0.6rem; text-align: center; color: var(--text-3); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+    #bodyFront, #bodyBack { height: 165px; }
+    #bodyFront .rbh-wrapper, #bodyBack .rbh-wrapper { height: 100%; }
 
     /* Day filter */
     .week-cell[data-day] { cursor: pointer; transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.15s var(--ease); }
@@ -288,72 +274,13 @@
       <div class="ex-modal-content">
         <ol class="ex-modal-steps" id="exSteps"></ol>
 
-        <!-- Muscle heatmap SVG -->
+        <!-- Muscle diagram (body-highlighter CDN) -->
         <div>
-          <p style="font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:10px;text-align:center;">Muscles worked</p>
-          <svg id="bodyMap" viewBox="0 0 190 210" class="body-map" aria-hidden="true">
-            <text x="47" y="9" class="body-label">Front</text>
-            <text x="143" y="9" class="body-label">Back</text>
-            <line x1="95" y1="13" x2="95" y2="202" class="body-divider"/>
-
-            <!-- ══ FRONT silhouette (base body, centered x=47) ══ -->
-            <circle class="ms-body" cx="47" cy="19" r="11"/>
-            <rect class="ms-body" x="42" y="29" width="10" height="8" rx="4"/>
-            <rect class="ms-body" x="25" y="35" width="44" height="26" rx="8"/>
-            <rect class="ms-body" x="28" y="58" width="38" height="40" rx="7"/>
-            <rect class="ms-body" x="7" y="40" width="17" height="46" rx="8"/>
-            <rect class="ms-body" x="8" y="83" width="15" height="27" rx="7"/>
-            <rect class="ms-body" x="70" y="40" width="17" height="46" rx="8"/>
-            <rect class="ms-body" x="71" y="83" width="15" height="27" rx="7"/>
-            <rect class="ms-body" x="27" y="96" width="18" height="52" rx="9"/>
-            <rect class="ms-body" x="49" y="96" width="18" height="52" rx="9"/>
-            <rect class="ms-body" x="28" y="146" width="16" height="42" rx="8"/>
-            <rect class="ms-body" x="50" y="146" width="16" height="42" rx="8"/>
-
-            <!-- ══ FRONT muscle regions ══ -->
-            <ellipse class="ms-base ms-f-shoulders" cx="14" cy="53" rx="10" ry="16"/>
-            <ellipse class="ms-base ms-f-shoulders" cx="80" cy="53" rx="10" ry="16"/>
-            <rect class="ms-base ms-f-biceps" x="8" y="46" width="14" height="30" rx="7"/>
-            <rect class="ms-base ms-f-biceps" x="72" y="46" width="14" height="30" rx="7"/>
-            <rect class="ms-base ms-f-forearms" x="9" y="82" width="13" height="26" rx="6"/>
-            <rect class="ms-base ms-f-forearms" x="72" y="82" width="13" height="26" rx="6"/>
-            <rect class="ms-base ms-f-quads" x="28" y="97" width="17" height="50" rx="8"/>
-            <rect class="ms-base ms-f-quads" x="49" y="97" width="17" height="50" rx="8"/>
-            <ellipse class="ms-base ms-f-inner" cx="46" cy="118" rx="5" ry="16"/>
-            <ellipse class="ms-base ms-f-outer" cx="26" cy="118" rx="5" ry="16"/>
-            <ellipse class="ms-base ms-f-outer" cx="68" cy="118" rx="5" ry="16"/>
-            <rect class="ms-base ms-f-calves" x="29" y="147" width="14" height="40" rx="7"/>
-            <rect class="ms-base ms-f-calves" x="51" y="147" width="14" height="40" rx="7"/>
-
-            <!-- ══ BACK silhouette (base body, centered x=143, offset +96) ══ -->
-            <circle class="ms-body" cx="143" cy="19" r="11"/>
-            <rect class="ms-body" x="138" y="29" width="10" height="8" rx="4"/>
-            <rect class="ms-body" x="121" y="35" width="44" height="26" rx="8"/>
-            <rect class="ms-body" x="124" y="58" width="38" height="40" rx="7"/>
-            <rect class="ms-body" x="103" y="40" width="17" height="46" rx="8"/>
-            <rect class="ms-body" x="104" y="83" width="15" height="27" rx="7"/>
-            <rect class="ms-body" x="166" y="40" width="17" height="46" rx="8"/>
-            <rect class="ms-body" x="167" y="83" width="15" height="27" rx="7"/>
-            <rect class="ms-body" x="123" y="96" width="18" height="52" rx="9"/>
-            <rect class="ms-body" x="145" y="96" width="18" height="52" rx="9"/>
-            <rect class="ms-body" x="124" y="146" width="16" height="42" rx="8"/>
-            <rect class="ms-body" x="146" y="146" width="16" height="42" rx="8"/>
-
-            <!-- ══ BACK muscle regions ══ -->
-            <ellipse class="ms-base ms-b-rear-delts" cx="110" cy="53" rx="10" ry="16"/>
-            <ellipse class="ms-base ms-b-rear-delts" cx="176" cy="53" rx="10" ry="16"/>
-            <rect class="ms-base ms-b-triceps" x="104" y="46" width="14" height="30" rx="7"/>
-            <rect class="ms-base ms-b-triceps" x="168" y="46" width="14" height="30" rx="7"/>
-            <path class="ms-base ms-b-lats" d="M121,38 L118,78 L130,78 L133,40 Z"/>
-            <path class="ms-base ms-b-lats" d="M165,38 L168,78 L156,78 L153,40 Z"/>
-            <rect class="ms-base ms-b-mid" x="132" y="48" width="22" height="28" rx="5"/>
-            <ellipse class="ms-base ms-b-glutes" cx="133" cy="97" rx="13" ry="10"/>
-            <ellipse class="ms-base ms-b-glutes" cx="153" cy="97" rx="13" ry="10"/>
-            <rect class="ms-base ms-b-hamstrings" x="124" y="97" width="17" height="50" rx="8"/>
-            <rect class="ms-base ms-b-hamstrings" x="145" y="97" width="17" height="50" rx="8"/>
-            <rect class="ms-base ms-b-calves" x="125" y="147" width="14" height="40" rx="7"/>
-            <rect class="ms-base ms-b-calves" x="147" y="147" width="14" height="40" rx="7"/>
-          </svg>
+          <p style="font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-3);margin-bottom:8px;text-align:center;">Muscles worked</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <div><p class="body-view-label">Front</p><div id="bodyFront"></div></div>
+            <div><p class="body-view-label">Back</p><div id="bodyBack"></div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -367,7 +294,9 @@
 
 </div>
 
-<script>
+<script type="module">
+import { createBodyHighlighter, ModelType } from 'https://cdn.jsdelivr.net/npm/body-highlighter/+esm';
+
 const EXERCISES = {
   'bicep-curls': { name:'Bicep Curls', muscles:'Biceps, Forearms', steps:['Stand holding dumbbells at your sides, palms facing forward, elbows tucked in.','Curl both weights toward your shoulders. Keep your elbows completely stationary.','Squeeze the biceps hard at the top. No swinging.','Lower slowly back to the start, resisting the weight all the way down.'] },
   'hammer-curls': { name:'Hammer Curls', muscles:'Biceps, Forearms', steps:['Stand holding dumbbells at your sides with palms facing each other (neutral grip).','Curl both weights toward your shoulders, maintaining the neutral grip throughout.','Hold briefly at the top. No swinging.','Lower slowly. The neutral grip hits the outer bicep and brachialis harder than standard curls.'] },
@@ -388,33 +317,59 @@ const EXERCISES = {
   'reverse-cable-fly': { name:'Reverse Cable Fly', muscles:'Rear delts, Mid-back', steps:['Stand between two cable machines set at face height, each hand holding the opposite cable.','Arms start crossed. Pull both hands out and back in a wide arc, keeping arms nearly straight.','Squeeze the rear delts and upper back at the end of the movement.','Return slowly with control to the crossed starting position.'] }
 };
 
+// Normalise my display names → body-highlighter canonical muscle IDs
 const MUSCLE_MAP = {
-  'Biceps': ['ms-f-biceps'],
-  'Brachialis': ['ms-f-biceps'],
-  'Forearms': ['ms-f-forearms'],
-  'Triceps': ['ms-b-triceps'],
-  'Medial deltoids': ['ms-f-shoulders'],
-  'Front and medial delts': ['ms-f-shoulders', 'ms-b-rear-delts'],
-  'Lats': ['ms-b-lats'],
-  'Rear delts': ['ms-b-rear-delts'],
-  'Mid-back': ['ms-b-mid'],
-  'Quads': ['ms-f-quads'],
-  'Quadriceps': ['ms-f-quads'],
-  'Hamstrings': ['ms-b-hamstrings'],
-  'Glutes': ['ms-b-glutes'],
-  'Inner thighs': ['ms-f-inner'],
-  'Outer thighs': ['ms-f-outer', 'ms-b-glutes'],
-  'Gastrocnemius': ['ms-b-calves'],
-  'Soleus': ['ms-b-calves'],
+  'biceps': ['biceps'], 'brachialis': ['biceps'],
+  'forearms': ['forearm'],
+  'triceps': ['triceps'],
+  'medial deltoids': ['front-deltoids'],
+  'front and medial delts': ['front-deltoids'],
+  'lats': ['upper-back'],
+  'rear delts': ['back-deltoids'],
+  'mid-back': ['upper-back'],
+  'quads': ['quadriceps'], 'quadriceps': ['quadriceps'],
+  'hamstrings': ['hamstring'],
+  'glutes': ['gluteal'],
+  'inner thighs': ['adductor'],
+  'outer thighs': ['abductors'],
+  'gastrocnemius': ['calves'], 'soleus': ['calves'],
 };
 
+function getBodyColors() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  return {
+    bodyColor: isLight ? '#b8ccd8' : '#1e2d3d',
+    highlightedColors: [isLight ? '#2171b5' : '#4292c6']
+  };
+}
+
+const initColors = getBodyColors();
+const frontHighlighter = createBodyHighlighter({
+  container: document.getElementById('bodyFront'),
+  type: ModelType.ANTERIOR,
+  ...initColors, data: []
+});
+const backHighlighter = createBodyHighlighter({
+  container: document.getElementById('bodyBack'),
+  type: ModelType.POSTERIOR,
+  ...initColors, data: []
+});
+
+// Keep colours in sync with theme toggle
+new MutationObserver(() => {
+  const c = getBodyColors();
+  frontHighlighter.update(c);
+  backHighlighter.update(c);
+}).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
 function highlightMuscles(muscleStr) {
-  document.querySelectorAll('#bodyMap .ms-active').forEach(el => el.classList.remove('ms-active'));
-  muscleStr.split(',').map(m => m.trim()).forEach(muscle => {
-    (MUSCLE_MAP[muscle] || []).forEach(cls => {
-      document.querySelectorAll('#bodyMap .' + cls).forEach(el => el.classList.add('ms-active'));
-    });
-  });
+  const muscles = [...new Set(
+    muscleStr.split(',').flatMap(m => MUSCLE_MAP[m.trim().toLowerCase()] || [])
+  )];
+  const c = getBodyColors();
+  const data = muscles.length ? [{ name: 'exercise', muscles }] : [];
+  frontHighlighter.update({ ...c, data });
+  backHighlighter.update({ ...c, data });
 }
 
 // ── Daily checkboxes ──────────────────────────────────────────────
@@ -459,6 +414,7 @@ function openModal(exId) {
 function closeModal() {
   overlay.classList.remove('open');
   document.body.style.overflow = '';
+  highlightMuscles('');
 }
 
 document.querySelectorAll('.ex-info').forEach(btn => {
@@ -486,11 +442,12 @@ allWeekCells.forEach(cell => {
   });
 });
 
-function clearDayFilter() {
+// Expose to global scope (called from inline onclick attribute)
+window.clearDayFilter = function() {
   allDayBlocks.forEach(b => b.classList.remove('day-hidden'));
   allWeekCells.forEach(c => c.classList.remove('day-active'));
   showAllBtn.style.display = 'none';
-}
+};
 </script>
 
 <script src="app.js"></script>
